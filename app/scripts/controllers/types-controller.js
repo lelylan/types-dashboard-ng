@@ -1,4 +1,5 @@
 function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  console.log('Popular');
   $rootScope.active = 'popular';
   $scope.types  = popularTypes;
 
@@ -7,12 +8,20 @@ function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
 }
 
 function PublicTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  console.log('Public');
   $rootScope.active = 'public';
   $scope.types = [];
 }
 
 function PrivateTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  console.log('Private');
   $rootScope.active = 'private';
+  $scope.types = [];
+}
+
+function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
+  console.log('Category');
+  $rootScope.active = $routeParams.category;
   $scope.types = [];
 }
 

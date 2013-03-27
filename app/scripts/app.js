@@ -11,5 +11,6 @@ app.config(['$routeProvider', function($routeProvider) {
     when('/popular',   { templateUrl: '/partials/types.html', controller: PopularTypesCtrl }).
     when('/public',    { templateUrl: '/partials/types.html', controller: PublicTypesCtrl }).
     when('/types',     { templateUrl: '/partials/types.html', controller: PrivateTypesCtrl }).
+    when('/categories/:category', { templateUrl: '/partials/types.html',  controller: CategoriesCtrl }).
     otherwise({redirectTo: '/popular'});
 }]);

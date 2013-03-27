@@ -16,7 +16,7 @@ test.run(function($httpBackend) {
   $httpBackend.whenDELETE(/http:\/\/api.lelylan.com\/properties/)
     .respond(function(method, url, data, headers){ return [200, deleteProperty(data), {}]; });
 
-  $httpBackend.whenGET(/partials\/types.html/).passThrough();
+  $httpBackend.whenGET(/partials/).passThrough();
 
   // TODO refactoring
   var createProperty = function(data) {
