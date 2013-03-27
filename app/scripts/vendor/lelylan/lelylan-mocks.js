@@ -3,8 +3,8 @@
 var test = angular.module('test', ['lelylan.dashboards.types', 'ngMockE2E']);
 
 test.run(function($httpBackend) {
-  $httpBackend.when('GET', /\/templates\//).passThrough();
 
+  $httpBackend.whenGET('http://api.lelylan.com/types/popular').respond(types);
   $httpBackend.whenGET('http://api.lelylan.com/types/1').respond(type);
   $httpBackend.whenPUT(/http:\/\/api.lelylan.com\/types/)
     .respond(function(method, url, data, headers){ return [200, updateType(data), {}]; });
@@ -15,6 +15,8 @@ test.run(function($httpBackend) {
     .respond(function(method, url, data, headers){ return [200, updateProperty(data), {}]; });
   $httpBackend.whenDELETE(/http:\/\/api.lelylan.com\/properties/)
     .respond(function(method, url, data, headers){ return [200, deleteProperty(data), {}]; });
+
+  $httpBackend.whenGET(/partials\/types.html/).passThrough();
 
   // TODO refactoring
   var createProperty = function(data) {
