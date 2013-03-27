@@ -1,0 +1,106 @@
+@import "compass_twitter_bootstrap";
+
+$lelylanColor:    #239CBB !default;
+$typeBorderColor: #DDD !default;
+$linkColor:       #00979D !default;
+$linkColorHover:  #01cf9e !default;
+
+/*
+ * Dashboard (generic)
+ */
+
+body {
+  background-color: #e8e8e8;
+}
+
+.dashboard {
+  padding-top: 60px;
+}
+
+.dashboard .navbar {
+  background-color: #e8e8e8;
+}
+
+hr {
+  border-top: none;
+  background-color: transparent;
+  border-color: #d8d8d8;
+  margin: 10px 0;
+}
+
+.dashboard .nav-list .divider {
+  background-color: transparent;
+  border-color: #d8d8d8;
+}
+
+.dashboard .nav-header {
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.dashboard .nav-list {
+  padding-left: 0;
+}
+
+.dashboard .nav-list li > a {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.dashboard .content {
+  background-color: #fff;
+  min-height: 380px; /* remove and set it with Javascript */
+  padding: 20px;
+  border: 1px solid #d8d8d8;
+}
+
+.dashboard input {
+  @include placeholder(#ccc);
+}
+
+.dashboard .search input {
+  margin-bottom: 10px;
+}
+
+.dashboard .type .name {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.dashboard .type .name a:hover {
+  background: url(/images/icon-arrow-right-lg.png) no-repeat left 45%;
+  padding-left: 60px;
+}
+
+.dashboard a:hover {
+  text-decoration: none;
+}
+
+.dashboard .type .categories {
+  margin-top: 13px;
+  font-size: 13px;
+}
+
+.dashboard .type .categories ul {
+  margin-bottom: 0;
+}
+
+.dashboard .type a {
+  background-color: transparent;
+  padding-right: 0;
+  text-transform: uppercase;
+}
+.dashboard .type .name a {
+  color: #333;
+}
+.dashboard .type .categories a {
+  background-color: transparent;
+
+}
+.dashboard .type .name a:hover {
+  color: $linkColorHover;
+}
+
+footer {
+  margin-top: 20px;
+}

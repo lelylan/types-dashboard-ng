@@ -1,0 +1,248 @@
+<div class="container type type-{{type.id}}" ng-show="type">
+
+  <!-- Header -->
+
+  <div class="header">
+    <p class="name lead">{{type.name}}</p>
+    <div class="options">
+      <ul class="nav nav-pills">
+        <li><a href="#" class="show-properties" ng-class="{active: config.show.properties}" ng-click="showProperties()"><span class="badge badge-info">{{type.properties.length}}</span> Properties</a></li>
+        <li><a href="#" class="show-functions" ng-class="{active: config.show.functions}" ng-click="showFunctions()"><span class="badge badge-info">{{type.functions.length}}</span> Functions</a></li>
+        <li><a href="#" class="show-statuses" ng-class="{active: config.show.statuses}" ng-click="showStatuses()"><span class="badge badge-info">{{type.statuses.length}}</span> Statuses</a></li>
+        <li><a href="#" class="show-categories" ng-class="{active: config.show.categories}" ng-click="showCategories()"><span class="badge badge-info">{{type.categories.length || 0}}</span> Categories</a></li>
+      </ul>
+    </div>
+    <div class="description">
+      <p class="lead" ng-bind-html-unsafe="type.description"></p>
+    </div>
+  </div>
+
+  <!-- Sections -->
+
+  <div class="sections">
+
+    <!-- Properties -->
+
+    <div class="properties" ng-show="config.show.properties">
+
+      <!-- Property headers -->
+
+      <div class="header">
+        <p class="lead">Properties</p>
+        <div class="options">
+          <ul class="nav nav-pills">
+            <li><a href="#" class="add-property" ng-click="newProperty()"><i class="icon-plus"></i> Create new property</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Property items -->
+
+      <div class="content">
+        <div class="property property-{{property.id}}" ng-repeat="property in type.properties" ng-show="!property.temp">
+
+          <!-- Property view -->
+          <div class="property-view">
+            <div class="row property-name">
+              <p class="title span10">{{property.name}}</p>
+              <div class="options span1 pull-right">
+                <ul class="nav nav-pills">
+                  <li><a href="#" class="edit" ng-click="open(property, 'edit', 'Edit')"><i class="icon-pencil"></i></a></li>
+                  <li><a href="#" class="delete" ng-click="open(property, 'delete')"><i class="icon-remove"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row property-id">
+              <p class="pre span1">id</p>
+              <p class="span10">{{property.id}}</p>
+            </div>
+            <div class="row property-type">
+              <p class="pre span1">type</p>
+              <p class="span10" ng-show="property.type!='range' && property.suggested">This property accepts a <a href="#" ng-click="open(property, 'list')">list of values</a>.</p>
+              <p class="span10" ng-show="property.type!='range' && !property.suggested">This property accepts any {{property.type}} value.</p>
+              <p class="span10" ng-show="property.type=='range'">This property accepts a value between <code>{{property.range.min}}</code> and <code>{{property.range.max}}</code> with a step of <code>{{property.range.step}}</code>.</p>
+            </div>
+            <div class="row property-default">
+              <p class="pre span1">default</p>
+              <p class="span10" ng-show="!!property.default">The default value is <code>{{property.default}}</code>.</p>
+              <p class="span10" ng-show="!property.default">Default value not set.</p>
+            </div>
+          </div>
+
+          <!-- Property edit forms -->
+
+          <div modal="property.edit" close="reset(property, 'edit', form)">
+            <div class="property-edit">
+              <div class="modal-header">
+                <button class="pull-right close" type="button" ng-click="reset(property, 'edit', form)">&times;</button>
+                <h3 id="myModalLabel">{{property.label}} property</h3>
+              </div>
+              <form class="compact" name="form">
+                <div class="modal-body">
+                  <div class="property-name control-group" ng-class="{error: form.name.$invalid}">
+                    <div class="input-prepend">
+                      <span class="add-on">Name</span>
+                      <input class="input-xlarge" type="text" name="name" ng-model="property.name" placeholder="Property name" required><br/>
+                    </div>
+                    <small ng-show="form.name.$error.required" class="help-inline">Required</small>
+                  </div>
+                  <div class="property-type control-group" ng-class="{error: form.type.$invalid}">
+                    <div class="input-prepend">
+                      <span class="add-on">Type</span>
+                      <select ng-change="initProperty(property)" ng-options="key for (key, value) in config.property.types" ng-model="property.type" required></select>
+                    </div>
+                    <small ng-show="form.type.$error.required" class="help-inline">Required</small>
+                  </div>
+                  <div class="property-default control-group" ng-class="{error: form.default.$invalid}">
+                    <div class="input-prepend">
+                      <span class="add-on">Default</span>
+                      <input class="input-xlarge" type="text" name="default" ng-model="property.default" placeholder="{{property.placeholders.default}}"><br/>
+                    </div>
+                  </div>
+                  <div class="property-suggested control-group" ng-class="{error: form.suggested.$invalid}" ng-show="property.placeholders.suggested">
+                    <div class="input-prepend">
+                      <span class="add-on">Suggested</span>
+                      <input class="input-xlarge" type="text" name="default" ng-model="property.suggested" placeholder="{{property.placeholders.suggested}}"><br/>
+                    </div>
+                    <small class="help-inline muted">Suggested property must be a valid JSON object</small>
+                  </div>
+                  <div class="property-range control-group" ng-class="{error: form.min.$invalid || form.max.$invalid || form.step.$invalid}" ng-show="!property.placeholders.suggested">
+                    <div class="input-prepend">
+                      <span class="add-on">Range</span>
+                      <span class="add-on intern">Min</span><input class="intern" type="text" name="min" ng-model="property.range.min" placeholder="{{property.placeholders.range.min}}" ng-required="property.type=='range'">
+                      <span class="add-on intern">Max</span><input class="intern" type="text" name="max" ng-model="property.range.max" placeholder="{{property.placeholders.range.max}}" ng-required="property.type=='range'">
+                      <span class="add-on intern">Step</span><input class="intern" type="text" name="step" ng-model="property.range.step" placeholder="{{property.placeholders.range.step}}" ng-required="property.type=='range'">
+                    </div>
+                    <small ng-show="form.min.$error.required" class="help-inline">Minimum value required</small>
+                    <small ng-show="form.max.$error.required" class="help-inline">Maximum value required</small>
+                    <small ng-show="form.step.$error.required" class="help-inline">Step value required</small>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="update btn btn-lelylan" ng-show="!property.temp" ng-click="updateProperty(property, form)" ng-disabled="form.$invalid || form.$pristine"><i class="icon-white icon-pencil"></i> Update</button>
+                  <button class="create btn btn-lelylan" ng-show="property.temp" ng-click="createProperty(property, form)" ng-disabled="form.$invalid"><i class="icon-white icon-pencil"></i> Create</button>
+                  <button class="cancel btn" ng-click="reset(property, 'edit', form)"><i class="icon-refresh"></i> Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Property delete forms -->
+
+          <div modal="property.delete" close="close(property, 'delete')">
+            <div class="property-delete">
+              <div class="modal-header">
+                <button class="pull-right close" type="button" ng-click="close(property, 'delete')">&times;</button>
+                <h3 id="myModalLabel">Deleting a property is irreversible</h3>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-error">
+                  <div>If you are using this type to access any physical device in the market do not delete any property. The recommended way is to create a new type.</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="delete btn btn-danger" ng-click="deleteProperty(property)"><i class="icon-white icon-remove"></i> Delete</button>
+                <button class="cancel btn" ng-click="close(property, 'delete')"><i class="icon-refresh"></i> Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property suggested values -->
+
+          <!-- property.list to property.show.list (every form should follow this rule) -->
+          <div modal="property.list" close="close(property, 'list')">
+            <div class="property-suggested">
+              <div class="modal-header">
+                <button class="pull-right close" type="button" ng-click="close(property, 'list')">&times;</button>
+                <input type="text" ng-model="search" class="search-query" placeholder="Search by key">
+              </div>
+              <div class="modal-body">
+                 <table class="table table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th class="muted">Key</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="key in property.suggestedKeys | filter:search">
+                    <td class="muted">{{key}}</td>
+                    <td>{{property._suggested[key]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="functions" ng-show="config.show.functions">
+      <hr/>
+      <div class="options">
+        <ul class="nav nav-pills">
+          <li><a href="#" class="add-property"><i class="icon-plus"></i> Create new function</a></li>
+        </ul>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Updated properties</th>
+            <th class="fixed"></th>
+            <th class="fixed"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="function in type.functions">
+            <td>{{function.name}}</td>
+            <td>
+              <div ng-repeat="property in function.properties">
+                <span ng-show="property.value != null">Sets {{property.name | lowercase}} to <code>{{property.value}}</code><br/></span>
+                <span ng-show="property.value == null">Sets {{property.name | lowercase}} to the <code>user desired value</code><br/></span>
+              </div>
+            </td>
+            <td><a href="#" class="action add-property"><i class="icon-pencil"></i></a></td>
+            <td><a href="#" class="action add-property"><i class="icon-remove"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--Statuses-->
+    <div class="statuses" ng-show="config.show.statuses">
+      <hr/>
+      <div class="options">
+        <ul class="nav nav-pills">
+          <li><a href="#" class="add-property"><i class="icon-plus"></i> Create new status</a></li>
+        </ul>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Checking properties</th>
+            <th>Default function</th>
+            <th class="fixed"></th>
+            <th class="fixed"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="status in type.statuses">
+            <td>{{status.name}}</td>
+            <td>
+              <div ng-repeat="property in status.properties">
+                <span>When {{property.name | lowercase}} is <code>{{property.values}}</code> <span ng-show="property.pending != null">and pending is <code>{{property.pending}}</code></span> <br/></span>
+              </div>
+            </td>
+            <td>{{status.function.name}}</td>
+            <td><a href="#" class="action add-property"><i class="icon-pencil"></i></a></td>
+            <td><a href="#" class="action add-property"><i class="icon-remove"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
