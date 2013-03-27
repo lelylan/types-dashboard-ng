@@ -7,7 +7,7 @@
   </head>
   <body>
 
-    <div class="dashboard">
+    <div class="dashboard" ng-controller="DashboardCtrl">
 
       <!-- Top menu -->
 
@@ -35,18 +35,18 @@
                 <li><a href="#"><i class="icon-plus"></i> Create type</a></li>
                 <li class="divider"></li>
                 <li class="nav-header">Search types</li>
-                <li><a href="/types/popular"><i class="icon-star"></i> Popular</a></li>
-                <li><a href="/types/public"><i class="icon-th"></i> All</a></li>
-                <li><a href="/types"><i class="icon-user"></i> Yours</a></li>
+                <li ng-class="{active: active=='popular'}"><a href="/popular"><i class="icon-star"></i> Popular</a></li>
+                <li ng-class="{active: active=='public'}"><a href="/public"><i class="icon-th"></i> All</a></li>
+                <li ng-class="{active: active=='private'}"><a href="/types"><i class="icon-user"></i> Yours</a></li>
                 <li class="nav-header">Categories</li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Lights</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Locks</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Thermostats</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Sensors</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Meters</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Alarm systems</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Video surveillance</a></li>
-                <li><a href="/types/categories/lights"><i class="icon-tag"></i> Appliances</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Lights</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Locks</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Thermostats</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Sensors</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Meters</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Alarm systems</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Video surveillance</a></li>
+                <li><a href="/categories/lights"><i class="icon-tag"></i> Appliances</a></li>
               </ul>
             </div>
           </div>

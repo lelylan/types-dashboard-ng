@@ -7,10 +7,9 @@ var app = angular.module('lelylan.dashboards.types', [
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/types/popular', {templateUrl: '/partials/types.html', controller: PopularTypesCtrl}).
-    when('/types/public',  {templateUrl: '/partials/types.html', controller: PublicTypesCtrl}).
-    when('/types',         {templateUrl: '/partials/types.html', controller: PrivateTypesCtrl}).
-    otherwise({redirectTo: '/types/popular'});
+    when('/types/:id', { templateUrl: '/partials/type.html',  controller: TypeCtrl }).
+    when('/popular',   { templateUrl: '/partials/types.html', controller: PopularTypesCtrl }).
+    when('/public',    { templateUrl: '/partials/types.html', controller: PublicTypesCtrl }).
+    when('/types',     { templateUrl: '/partials/types.html', controller: PrivateTypesCtrl }).
+    otherwise({redirectTo: '/popular'});
 }]);
-
-

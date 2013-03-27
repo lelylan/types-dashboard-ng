@@ -1,21 +1,35 @@
-function PopularTypesCtrl(Type, $scope, $routeParams) {
-  $scope.types = popularTypes;
+function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = 'popular';
+  $scope.types  = popularTypes;
 
   var converter = new Showdown.converter();
   _.each($scope.types, function(type) { type.description = converter.makeHtml(type.description); })
 }
 
-function PublicTypesCtrl(Type, $scope, $routeParams) {
+function PublicTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = 'public';
   $scope.types = [];
 }
 
-function PrivateTypesCtrl(Type, $scope, $routeParams) {
+function PrivateTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = 'private';
   $scope.types = [];
 }
 
-PopularTypesCtrl.$inject = ['Type', '$scope', '$routeParams'];
-PublicTypesCtrl.$inject = ['Type', '$scope', '$routeParams'];
-PrivateTypesCtrl.$inject = ['Type', '$scope', '$routeParams'];
+function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = 'public';
+  $scope.id = $routeParams.id;
+}
+
+function DashboardCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = 'popular';
+}
+
+
+PopularTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+PublicTypesCtrl.$inject  = ['Type', '$scope', '$routeParams', '$rootScope'];
+PrivateTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+TypeCtrl.$inject         = ['Type', '$scope', '$routeParams', '$rootScope'];
 
 var popularTypes = [{
   uri: 'http://api.lelylan.com/types/1',

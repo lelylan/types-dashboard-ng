@@ -1,6 +1,6 @@
 @import "compass_twitter_bootstrap";
 
-$lelylanColor:    #239CBB !default;
+$lelylanColor:    #00979D !default;
 $typeBorderColor: #DDD !default;
 $linkColor:       #00979D !default;
 $linkColorHover:  #01cf9e !default;
@@ -62,9 +62,13 @@ hr {
   margin-bottom: 10px;
 }
 
-.dashboard .type .name {
-  font-size: 48px;
-  font-weight: bold;
+.dashboard .type h1.name a {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.dashboard .type h1.name {
+  line-height: 20px;
 }
 
 .dashboard .type .name a:hover {
