@@ -1,4 +1,4 @@
-<div class="type type-{{type.id}}" ng-show="type">
+<div class="type-component type-component-{{type.id}}">
 
   <!-- Header -->
 
@@ -43,26 +43,26 @@
 
           <!-- Property view -->
           <div class="property-view">
-            <div class="row property-name">
-              <p class="title span8">{{property.name}}</p>
-              <div class="options span3">
+            <div class="property-name">
+              <p class="title">{{property.name}}</p>
+              <div class="options">
                 <ul class="nav nav-pills pull-right">
                   <li><a href="#" class="edit" ng-click="open(property, 'edit', 'Edit')"><i class="icon-pencil"></i></a></li>
                   <li><a href="#" class="delete" ng-click="open(property, 'delete')"><i class="icon-remove"></i></a></li>
                 </ul>
               </div>
             </div>
-            <div class="row property-id">
-              <p class="span10">ID {{property.id}}</p>
+            <div class="property-id">
+              <p><span class="icon-chevron-right"></span> ID {{property.id}}</p>
             </div>
-            <div class="row property-type">
-              <p class="span10" ng-show="property.type!='range' && property.suggested">This property accepts a <a href="#" ng-click="open(property, 'list')">list of values</a>.</p>
-              <p class="span10" ng-show="property.type!='range' && !property.suggested">This property accepts any {{property.type}} value.</p>
-              <p class="span10" ng-show="property.type=='range'">This property accepts a value between <code>{{property.range.min}}</code> and <code>{{property.range.max}}</code> with a step of <code>{{property.range.step}}</code>.</p>
+            <div class="property-type">
+              <p ng-show="property.type!='range' && property.suggested"><span class="icon-chevron-right"></span> This property accepts a <a href="#" ng-click="open(property, 'list')">list of values</a>.</p>
+              <p ng-show="property.type!='range' && !property.suggested"><span class="icon-chevron-right"></span> This property accepts any {{property.type}} value.</p>
+              <p ng-show="property.type=='range'"><span class="icon-chevron-right"></span> This property accepts a value between <code>{{property.range.min}}</code> and <code>{{property.range.max}}</code> with a step of <code>{{property.range.step}}</code>.</p>
             </div>
-            <div class="row property-default">
-              <p class="span10" ng-show="!!property.default">The default value is <code>{{property.default}}</code>.</p>
-              <p class="span10" ng-show="!property.default">Default value not set.</p>
+            <div class="property-default">
+              <p ng-show="!!property.default"><span class="icon-chevron-right"></span> The default value is <code>{{property.default}}</code>.</p>
+              <p ng-show="!property.default"><span class="icon-chevron-right"></span> Default value not set.</p>
             </div>
           </div>
 

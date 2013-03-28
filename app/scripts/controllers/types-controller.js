@@ -25,7 +25,6 @@ function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
 }; CategoriesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 
 function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
-  $rootScope.active = 'public';
   $scope.typeId = $routeParams.typeId;
 }; TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 
