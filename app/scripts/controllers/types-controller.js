@@ -26,15 +26,12 @@ function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
 
 function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
   $rootScope.active = 'public';
-  $scope.id = $routeParams.id;
+  $scope.typeId = $routeParams.typeId;
 }; TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 
 function DashboardCtrl(Type, $scope, $routeParams, $rootScope) {
   $rootScope.active = 'popular';
 }; DashboardCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
-
-
 
 
 

@@ -17,6 +17,7 @@ test.run(function($httpBackend) {
     .respond(function(method, url, data, headers){ return [200, deleteProperty(data), {}]; });
 
   $httpBackend.whenGET(/partials/).passThrough();
+  $httpBackend.whenGET(/templates/).passThrough();
 
   // TODO refactoring
   var createProperty = function(data) {
