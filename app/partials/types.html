@@ -1,3 +1,5 @@
+<!-- Show all types when they are loaded -->
+
 <div class="search">
   <div class="input-append">
     <input class="input-xlarge" type="text" ng-model="query" placeholder="Seach a device type (e.g light, lock)">
@@ -7,7 +9,7 @@
 
 <hr/>
 
-<div class="types">
+<div class="types" ng-show="!loading && authorized && types.length!=0">
   <div class="type" ng-repeat="type in types | filter:query">
     <div class="row">
       <div class="span6">
@@ -21,4 +23,22 @@
     </div>
     <hr/>
   </div>
+</div>
+
+<!-- Authorization needed message -->
+
+<div class="alert alert-block" ng-show="!authorized">
+  <p class="lead">To see your types you first need to <strong>Sign In</strong>.</p>
+</div>
+
+<!-- Loading types message -->
+
+<div class="alert alert-block" ng-show="loading && authorized">
+  <p class="lead">Loading resources...</p>
+</div>
+
+<!-- No types found -->
+<div class="alert alert-block" ng-show="!loading && authorized && types.length==0">
+
+  <p class="lead"><strong>No types were found</strong>. Be the first to create a new one.</p>
 </div>

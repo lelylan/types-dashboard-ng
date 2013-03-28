@@ -2,44 +2,41 @@
 
 
 // Generic top level controller
-function DashboardCtrl(Type, $scope, $routeParams, $rootScope) {
+function DashboardCtrl($rootScope) {
   $rootScope.active = 'popular';
 };
 
-DashboardCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+DashboardCtrl.$inject = ['$rootScope'];
 
 
 // Popular types (predefined)
-function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  $scope.types = popularTypes;
+function PopularTypesCtrl($scope, $rootScope) {
   $rootScope.active = 'popular';
+  $scope.authorized = true;
+  $scope.loading    = false;
+  $scope.types      = popularTypes;
 };
 
-PopularTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+PopularTypesCtrl.$inject = ['$scope', '$rootScope'];
 
 
 // Created types
-function PrivateTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  $scope.types = Type.query({ per: 100 });
+function PrivateTypesCtrl(Type, AccessToken, $scope, $rootScope) {
   $rootScope.active = 'private';
+  $scope.authorized = (!!AccessToken.get().access_token);
+  $scope.loading    = true;
+  $scope.types      = Type.query({ per: 100 }, function(){ $scope.message = false });
 };
 
-PrivateTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
-
-// All types
-function PublicTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  $scope.types = [];
-  $rootScope.active = 'public';
-};
-
-PublicTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+PrivateTypesCtrl.$inject = ['Type', 'AccessToken', '$scope', '$rootScope'];
 
 
 // Category scpecific types
 function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
   $rootScope.active = $routeParams.category;
-  $scope.types = Type.public({ category: $routeParams.category });
+  $scope.authorized = true;
+  $scope.loading    = false;
+  $scope.types      = Type.public({ category: $routeParams.category }, function(){ $scope.message = false });
 };
 
 CategoriesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
