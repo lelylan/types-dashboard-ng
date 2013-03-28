@@ -112,8 +112,16 @@ hr {
 
 .dashboard .alert-block {
   color: #239cbb;
-  background-color: #daf9fd;
-  border-color: #c5f3ff;
+  background-color: #f8f8f8;
+  border-color: #e8e8e8;
+}
+
+.dashboard .search-query {
+  height: 40px;
+  width: 400px;
+  font-size: 26px;
+  line-height: 32px;
+  @include border-radius(30px);
 }
 
 footer {
