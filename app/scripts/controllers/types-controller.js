@@ -1,37 +1,56 @@
 'use strict';
 
-function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  console.log('Popular');
-  $rootScope.active = 'popular';
-  $scope.types  = popularTypes;
-}; PopularTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 
-function PublicTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  console.log('Public');
-  $rootScope.active = 'public';
-  $scope.types = [];
-}; PublicTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
-function PrivateTypesCtrl(Type, $scope, $routeParams, $rootScope) {
-  console.log('Private');
-  $rootScope.active = 'private';
-  $scope.types = [];
-}; PrivateTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
-function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
-  console.log('Category');
-  $rootScope.active = $routeParams.category;
-  $scope.types = [];
-}; CategoriesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
-function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
-  $scope.typeId = $routeParams.typeId;
-}; TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
-
+// Generic top level controller
 function DashboardCtrl(Type, $scope, $routeParams, $rootScope) {
   $rootScope.active = 'popular';
-}; DashboardCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+};
 
+DashboardCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// Popular types (predefined)
+function PopularTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $scope.types = popularTypes;
+  $rootScope.active = 'popular';
+};
+
+PopularTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// Created types
+function PrivateTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $scope.types = Type.query({ per: 100 });
+  $rootScope.active = 'private';
+};
+
+PrivateTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// All types
+function PublicTypesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $scope.types = [];
+  $rootScope.active = 'public';
+};
+
+PublicTypesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// Category scpecific types
+function CategoriesCtrl(Type, $scope, $routeParams, $rootScope) {
+  $rootScope.active = $routeParams.category;
+  $scope.types = Type.public({ category: $routeParams.category });
+};
+
+CategoriesCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// Single type visualization
+function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
+  $scope.typeId = $routeParams.typeId;
+};
+
+TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 
 
 var popularTypes = [{
