@@ -124,6 +124,10 @@ hr {
   @include border-radius(30px);
 }
 
+.navbar .brand {
+  padding: 5px 20px 0px !important;
+}
+
 footer {
   margin-top: 20px;
 }
