@@ -52,8 +52,8 @@ TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 // Type creation view
 function CreateTypeCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $location) {
   $rootScope.active = 'create';
-  //$scope.authorized = (!!AccessToken.get().access_token);
-  $scope.authorized = true;
+  $scope.authorized = (!!AccessToken.get().access_token);
+  //$scope.authorized = true;
   $scope.type = new Type();
   $scope.create = function() {
     $scope.type.$save(function() { $location.url('/types/' + $scope.type.id); });

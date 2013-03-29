@@ -107,7 +107,7 @@ hr {
 }
 
 .dashboard .alert-block {
-  color: #239cbb;
+  color: #333;
   background-color: #f8f8f8;
   border-color: #e8e8e8;
 }
@@ -126,9 +126,10 @@ hr {
 
 .dashboard footer {
   margin-top: 20px;
+  padding-right: 2px;
 }
 
-// Create type
+// Create form type
 
 .dashboard .create h1 {
   font-weight: 200;
