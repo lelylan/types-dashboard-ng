@@ -1,11 +1,11 @@
 'use strict';
 
 // Generic top level controller
-function DashboardCtrl($scope, $rootScope) {
-  $rootScope.active = 'popular';
+function DashboardCtrl($rootScope) {
+  //$rootScope.active = 'popular';
 };
 
-DashboardCtrl.$inject = ['$scope', '$rootScope'];
+DashboardCtrl.$inject = ['$rootScope'];
 
 
 // Popular types (predefined)
@@ -60,7 +60,7 @@ function CreateTypeCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $lo
   };
 };
 
-TypeCtrl.$inject = ['Type', 'AccessToken', '$scope', '$routeParams', '$rootScope', '$location'];
+CreateTypeCtrl.$inject = ['Type', 'AccessToken', '$scope', '$routeParams', '$rootScope', '$location'];
 
 
 var popularTypes = [{
