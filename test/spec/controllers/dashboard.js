@@ -31,5 +31,15 @@ describe('dashboard', function() {
         expect(element('.sidebar-nav .active').text()).toMatch('Create type');
       });
     });
+
+    describe('when clicks on the home button', function() {
+
+      beforeEach(function() { element('.home .create').click(); });
+      beforeEach(function() { element('.navbar .home').click(); });
+
+      it('removes the highlight from any menu item', function() {
+        expect(repeater('.sidebar-nav li.active').count()).toBe(0);
+      });
+    });
   });
 });
