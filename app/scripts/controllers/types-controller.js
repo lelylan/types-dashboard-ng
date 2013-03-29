@@ -1,12 +1,11 @@
 'use strict';
 
-
 // Generic top level controller
-function DashboardCtrl($rootScope) {
+function DashboardCtrl($scope, $rootScope) {
   $rootScope.active = 'popular';
 };
 
-DashboardCtrl.$inject = ['$rootScope'];
+DashboardCtrl.$inject = ['$scope', '$rootScope'];
 
 
 // Popular types (predefined)
@@ -48,6 +47,20 @@ function TypeCtrl(Type, $scope, $routeParams, $rootScope) {
 };
 
 TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
+
+
+// Type creation view
+function CreateTypeCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $location) {
+  $rootScope.active = 'create';
+  //$scope.authorized = (!!AccessToken.get().access_token);
+  $scope.authorized = true;
+  $scope.type = new Type();
+  $scope.create = function() {
+    $scope.type.$save(function() { $location.url('/types/' + $scope.type.id); });
+  };
+};
+
+TypeCtrl.$inject = ['Type', 'AccessToken', '$scope', '$routeParams', '$rootScope', '$location'];
 
 
 var popularTypes = [{

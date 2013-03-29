@@ -63,10 +63,6 @@ hr {
   @include placeholder(#ccc);
 }
 
-.dashboard .search input {
-  margin-bottom: 10px;
-}
-
 .dashboard .type h1.name a {
   font-size: 38px;
   font-weight: 700;
@@ -125,12 +121,49 @@ hr {
 }
 
 .navbar .brand {
-  padding: 5px 20px 0px !important;
+  padding: 5px 20px 10px !important;
 }
 
-footer {
+.dashboard footer {
   margin-top: 20px;
 }
+
+// Create type
+
+.dashboard .create h1 {
+  font-weight: 200;
+}
+.dashboard .create .control-group {
+  padding: 3px 0;
+}
+
+.dashboard .create .type-name input,
+.dashboard .create .type-description textarea {
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 0;
+}
+
+.dashboard .create .type-name input {
+  height: 40px;
+}
+
+.dashboard .create .type-name .add-on,
+.dashboard .create .type-description .add-on {
+  height: 122px;
+  width: 100px;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.dashboard .create .type-name .add-on {
+  height: 30px;
+  padding-top: 14px;
+}
+.dashboard .create .type-description .add-on {
+  height: 122px;
+}
+
 
 
 // Type component refinements
