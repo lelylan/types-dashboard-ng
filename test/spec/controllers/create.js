@@ -25,6 +25,10 @@ describe('dashboard', function() {
       it('shows the created type', function() {
         expect(element('.type-component .name').text()).toMatch('Basic Light');
       });
+
+      it('activates "yours" menu item', function() {
+        expect(element('.sidebar-nav .active').text()).toMatch('Yours');
+      });
     });
   });
 });
