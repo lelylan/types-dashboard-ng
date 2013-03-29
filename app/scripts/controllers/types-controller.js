@@ -2,7 +2,7 @@
 
 // Generic top level controller
 function DashboardCtrl($rootScope) {
-  //$rootScope.active = 'popular';
+  $rootScope.active = '';
 };
 
 DashboardCtrl.$inject = ['$rootScope'];
@@ -52,10 +52,11 @@ TypeCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
 // Type creation view
 function CreateTypeCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $location) {
   $rootScope.active = 'create';
-  $scope.authorized = (!!AccessToken.get().access_token);
-  //$scope.authorized = true;
+  //$scope.authorized = (!!AccessToken.get().access_token);
+  $scope.authorized = true;
   $scope.type = new Type();
   $scope.create = function() {
+    console.log("Creating");
     $scope.type.$save(function() { $location.url('/types/' + $scope.type.id); });
   };
 };

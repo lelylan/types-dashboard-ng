@@ -10,6 +10,8 @@ test.run(function($httpBackend) {
   $httpBackend.whenGET(/http:\/\/api.lelylan.com\/types\/public/).respond([]);
   // Get a type defined by its ID
   $httpBackend.whenGET('http://api.lelylan.com/types/1').respond(type);
+  // Create a type
+  $httpBackend.whenPOST('http://api.lelylan.com/types').respond(type);
 
   $httpBackend.whenGET(/partials/).passThrough();
   $httpBackend.whenGET(/templates/).passThrough();
