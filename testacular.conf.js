@@ -7,7 +7,7 @@ files = [
   ANGULAR_SCENARIO,
   ANGULAR_SCENARIO_ADAPTER,
   'test/spec/controllers/*.js',
-  'test/spec/controllers/**/*.js'
+  'test/spec/controllers/**/*.js',
   'test/spec/components/*.js',
   'test/spec/components/**/*.js'
 ];
