@@ -5,14 +5,14 @@
 <hr/>
 
 <div class="types" ng-show="!loading && authorized && types.length!=0">
-  <div class="type" ng-repeat="type in types | filter:query">
+  <div class="type type-{{type.id}}" ng-repeat="type in types | filter:query">
     <div class="row">
       <div class="span6">
         <h1 class="name"><a href="/types/{{type.id}}">{{type.name}}</a></h1>
       </div>
       <div class="categories span2">
         <ul class="nav nav-pills pull-right">
-          <li ng-repeat="category in type.categories"><a href="/categories/{{category}}">#{{category}}</a></li>
+          <li ng-repeat="category in type.categories"><a class="{{category}}" href="/categories/{{category}}">#{{category}}</a></li>
         </ul>
       </div>
     </div>
@@ -35,5 +35,5 @@
 <!-- No types found -->
 <div class="alert alert-block" ng-show="!loading && authorized && types.length==0">
 
-  <p class="lead"><strong>No types were found</strong>. Be the first to <a href="/new">create</a> a new one.</p>
+  <p class="lead"><strong>No types were found</strong>. Be the first to <a href="/new">create a new one</a>.</p>
 </div>

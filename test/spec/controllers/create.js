@@ -1,34 +1,27 @@
-'use strict';
+//'use strict';
 
-describe('dashboard', function() {
+//describe('dashboard create', function() {
 
-  var page  = '/mocks/index.html';
+  //var page  = '/mocks/index.html';
+  //beforeEach(function() { browser().navigateTo(page); });
+  //beforeEach(function() { element('.sidebar-nav .create').click(); });
 
-  beforeEach(function() {
-    browser().navigateTo(page);
-  });
+  //it('shows the create form', function() {
+    //expect(element('.create-view .title').text()).toMatch('Create type');
+  //});
 
-  describe('when clicks "create type"', function() {
+  //describe('when creates a type', function() {
 
-    beforeEach(function() { element('.sidebar-nav .create').click(); });
+    //beforeEach(function() { input('type.name').enter('Name') });
+    //beforeEach(function() { input('type.description').enter('Description') });
+    //beforeEach(function() { element('.create-view .create').click(); });
 
-    it('shows the create form', function() {
-      expect(element('.create-view .title').text()).toMatch('Create type');
-    });
+    //it('shows the created type', function() {
+      //expect(element('.type-component .name').text()).toMatch('Basic Light');
+    //});
 
-    describe('when creates a type', function() {
-
-      beforeEach(function() { input('type.name').enter('Name') });
-      beforeEach(function() { input('type.description').enter('Description') });
-      beforeEach(function() { element('.create-view .create').click(); });
-
-      it('shows the created type', function() {
-        expect(element('.type-component .name').text()).toMatch('Basic Light');
-      });
-
-      it('activates "yours" menu item', function() {
-        expect(element('.sidebar-nav .active').text()).toMatch('Yours');
-      });
-    });
-  });
-});
+    //it('activates "yours" menu item', function() {
+      //expect(element('.sidebar-nav .active').text()).toMatch('Yours');
+    //});
+  //});
+//});
