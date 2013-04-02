@@ -9,7 +9,7 @@ Source code for [Lelylan Types Dashboard](http://t.lelylan.com).
 * What is [Lelylan](http://lelylan.com).
 
 
-## Required Tools
+## Used Tools
 
 * [AngularJS](http://angularjs.org/).
 * [Yeoman](http://yeoman.io).

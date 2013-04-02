@@ -136,41 +136,70 @@ hr {
 // Home
 
 .dashboard .home {
+  text-align: center;
+}
+
+.dashboard .presentation {
   margin: 10px 0;
 }
 
-.dashboard .home h1.title {
-  font-size: 82px;
+.dashboard .presentation h1.title {
+  font-size: 62px;
   line-height: 52px;
-  text-align: center;
   color: #239cbb;
   font-weight: 200;
   letter-spacing: 4px;
   margin: 30px 0 20px;
+  padding: 0px 30px;
 }
 
-.dashboard .home h2.subtitle {
+.dashboard .home h1.title {
+  font-size: 82px;
+}
+
+.dashboard .presentation h2.subtitle {
   padding: 20px 10px;
   font-size: 36px;
-  text-align: center;
   color: #333;
   font-weight: 200;
   line-height: 46px;
 }
 
-.dashboard .home .description {
+.dashboard .presentation .description {
   margin-top: 30px;
   padding: 0px 30px;
 }
 
-.dashboard .home p.lead {
-  text-align: center;
+.dashboard .presentation .description .btn {
+  width: 320px;
+  height: 30px;
+  font-size: 24px;
+  margin: 10px;
+  letter-spacing: 1px;
 }
 
-.dashboard .home .ch-grid a:hover,
-.dashboard .home .ch-grid a {
+.dashboard .presentation .ch-grid a:hover,
+.dashboard .presentation .ch-grid a {
   color: #fff;
 }
+
+.dashboard .presentation li {
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 30px;
+}
+
+.dashboard .presentation h2 {
+  margin-top: 30px;
+  font-weight: 100;
+  font-size: 38px;
+}
+
+.dashboard .presentation code {
+  color: #333;
+  background-color: rgb(255, 255, 255);
+}
+
 
 // Circles
 
