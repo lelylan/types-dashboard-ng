@@ -1,47 +1,68 @@
-<div class="home">
+<div class="how presentation">
 
-  <h1>How to create a type</h1>
-
-  <h2 class="subtitle">
-    Defining the devices you interact with everyday<br>
-    in an open and collaborative way
-  </h2>
-
-  <div>
-    <ul class="ch-grid">
-      <li>
-      <div class="ch-item ch-img-1">
-        <div class="ch-info">
-          <h3><a class="search" href="/popular">Search a type</a></h3>
-        </div>
-      </div>
-      </li>
-      <li>
-      <div class="ch-item ch-img-2">
-        <div class="ch-info">
-          <h3><a class="create" href="/new">Create a new type</a></h3>
-        </div>
-      </div>
-      </li>
-    </ul>
-  </div>
+  <h1 class="title">How to create a type</h1>
 
   <div class="description">
 
     <p class="lead">
-    <strong>What is a type?</strong>
+    To create a new type you need to click "create type". If signed in, a form asking you for a
+    name and a description will show up.
     </p>
 
-    <p class="lead">
-    A type is a resource that describes the structure of a device. <br>
-    In its simplest form every type can be defined as the combination of three key elements.
-    <strong>Properties</strong> which represents what vary during time,
-    <strong>functions</strong> which represents what a device can do and
-    <strong>statuses</strong> which represents what a device is in a specific moment.</br>
-    </p>
+    <img src="/images/how-1.png" class="img-polaroid">
+
+    <h2>Properties</h2>
 
     <p class="lead">
-    <a href="/what"><strong>Learn more about</strong></a>
+    Once you have filled the required information you are asked to create the type properties.
+    For a light they could be <code>status</code>, <code>intensity</code>, <code>color</code>
+    and <code>blinking times</code>.
     </p>
+
+    <img src="/images/how-1.png" class="img-polaroid">
+
+    <p class="lead">
+    To add a new property click "create new property". A modal form will appear
+    asking for the following params.
+    </p>
+
+    <ul>
+      <li><strong>Name</strong> -
+      A descriptive name for the property.
+      </li>
+
+      <li>
+      <strong>Type</strong> -
+      Accepted values are <code>text</code> (string values),
+      <code>number</code> (number values), <code>range</code> (number values
+      inside a specified range) and <code>color</code> (#000000 hex value).
+      </li>
+
+      <li>
+      <strong>Default</strong> -
+      Value assigned to the device property when initialized.
+      </li>
+
+      <li>
+      <strong>Suggested</strong> -
+      List of value/description pairs where value is the value used to update
+      the device properties and description is a friendly description associated to the value
+      (useful for UI definitions). This field is visible when type is not set to range.
+      </li>
+
+      <li>
+      <strong>Range</strong> -
+      Accepted values defined between a min, max and step value.
+      This field is visible when type is set to range.
+      </li>
+    </ul>
+
+    <p class="lead">
+    The following image shows a status property (on the left) which accepts the on and off
+    values and the intensity property (on the right) which accepts any value between 0
+    and 100 with a step of 1 (0, 1, 2, ... 99, 100).
+    </p>
+
+    <img src="/images/how-4.png" class="img-polaroid">
   </div>
 </div>

@@ -189,16 +189,31 @@ hr {
   line-height: 30px;
 }
 
+.dashboard .presentation ul {
+  list-style: none;
+}
+
 .dashboard .presentation h2 {
   margin-top: 30px;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 38px;
 }
 
+.dashboard .presentation img {
+  margin-bottom: 20px;
+}
+
 .dashboard .presentation code {
+  font-size: 14px;
   color: #333;
   background-color: rgb(255, 255, 255);
 }
+
+.dashboard .presentation h4 {
+  font-size: 26px;
+  font-weight: 200;
+}
+
 
 
 // Circles
