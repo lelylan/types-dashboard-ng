@@ -1,6 +1,18 @@
 # Dashboard for Lelylan Types
 
-Dashboard for [Lelylan Types](http://dev.lelylan.com/api/types).
+Source code for [Lelylan Types Dashboard](http://t.lelylan.com).
+
+
+## Introduction
+
+* What is [Lelylan Types Dashboard](http://t.lelylan.com).
+* What is [Lelylan](http://lelylan.com).
+
+
+## Required Tools
+
+* [AngularJS](http://angularjs.org/).
+* [Yeoman](http://yeoman.io).
 
 
 ## Contributing
