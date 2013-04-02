@@ -36,8 +36,8 @@ describe('dashboard create', function() {
     beforeEach(function() { browser().navigateTo(page); });
     beforeEach(function() { element('.sidebar-nav .create').click(); });
 
-    it('shows the create form', function() {
-      expect(element('.create-view .alert').text()).toMatch('To create a type you first need to Sign In');
+    it('shows the unauthorized message', function() {
+      expect(element('.create-view .authorization').css('display')).toBe('block');
     });
   });
 });
