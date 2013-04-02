@@ -3,8 +3,8 @@
 // TODO set the correct authorization check and set the oauth2 on testing
 function CreateCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $location) {
   $rootScope.active = 'create';
-  //$scope.authorized = (!!AccessToken.get().access_token);
-  $scope.authorized = true;
+  $scope.authorized = (!!AccessToken.get().access_token);
+  //$scope.authorized = true;
   $scope.type = new Type();
 
   $scope.create = function() {

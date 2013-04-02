@@ -19,7 +19,12 @@
               <ul class="nav pull-right">
                 <li><a href="/what">What is a type</a></li>
                 <li><a href="/how">How to create a type</a></li>
-                <li><a href="#">Sign in</a></li>
+                <li>
+                  <login client="{{oauth.client}}"
+                         redirect="{{oauth.redirect}}"
+                         scope="{{oauth.scope}}"
+                         state="{{oauth.state}}"></login>
+                </li>
               </ul>
             </div>
           </div>

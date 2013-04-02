@@ -1,7 +1,13 @@
 'use strict';
 
-function DashboardCtrl($rootScope) {
+function DashboardCtrl($scope, $rootScope) {
   $rootScope.active = '';
+  $scope.oauth = {
+    client:   '<client-id>',
+    redirect: '<redirect>',
+    scope:    '<scope>',
+    state:    '<state>'
+  };
 };
 
-DashboardCtrl.$inject = ['$rootScope'];
+DashboardCtrl.$inject = ['$scope', '$rootScope'];
