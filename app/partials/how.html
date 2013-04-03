@@ -19,47 +19,54 @@
     and <code>blinking times</code>.
     </p>
 
-    <img src="/images/how-1.png" class="img-polaroid">
+    <img src="/images/how-2.png" class="img-polaroid">
 
     <p class="lead">
     To add a new property click "create new property". A modal form will appear
     asking for the following params.
     </p>
 
-    <ul>
-      <li><em>Name</em> -
-      A descriptive name for the property.
-      </li>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>A descriptive name for the property</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>
+            Property accepted values as <code>text</code>,
+            <code>number</code>, <code>range</code> and <code>color</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>Default</td>
+          <td>
+            Value assigned to the device property when initialized.
+          </td>
+        </tr>
+        <tr>
+          <td>Suggested</td>
+          <td>
+            List of value/description pairs (visible when type is not set to range).
+            Learn more on <a href="http://dev.lelylan.com/community/faq#suggested-values">dev center</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>Range</td>
+          <td>
+            Accepted values defined between a min, max and step value
+            (visible when type is set to range).
+          </td>
+        </tr>
+    </table>
 
-      <li>
-      <em>Type</em> -
-      Accepted values are <code>text</code> (string values),
-      <code>number</code> (number values), <code>range</code> (number values
-      inside a specified range) and <code>color</code> (#000000 hex value).
-      </li>
-
-      <li>
-      <em>Default</em> -
-      Value assigned to the device property when initialized.
-      </li>
-
-      <li>
-      <em>Suggested</em> -
-      List of value/description pairs where value is the value used to update
-      the device properties and description is a friendly description associated to the value
-      (useful for UI definitions). This field is visible when type is not set to range.
-      </li>
-
-      <li>
-      <em>Range</em> -
-      Accepted values defined between a min, max and step value.
-      This field is visible when type is set to range.
-      </li>
-    </ul>
+    <img src="/images/how-3.png" class="img-rounded">
 
     <p class="lead">
-    To better understand how properties are defined <a href="/popular">check out some types</a>
-    in popular or check out <a href="http://dev.lelylan.com/api/types/properties">Lelylan Properties API</a>
+    Below you can see a couple of examples defining for a light the properties status and intensity.
+    To better understand how properties works <a href="/popular">check out some defined types</a>
+    or learn more about <a href="http://dev.lelylan.com/api/types/properties">Lelylan Properties API</a>
     (in private beta).
     </p>
 
