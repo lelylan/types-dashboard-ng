@@ -4,70 +4,114 @@
 
   <div class="description">
 
+    <h2>Before starting</h2>
+
     <p class="lead">
-    To create a new type you need to click "create type". If signed in, a form asking you for a
-    name and a description will show up.
+    In this section we explain how to create a type. Even so, as the time passes, you will
+    find more and more type already defined. For this reason we highly suggest to double check
+    for existing types in the <a href="/popular">popular section</a> or in the categories.
+    This could save you some time.
     </p>
 
-    <img src="/images/how-1.png" class="img-polaroid">
+    <h2>Create a type</h2>
+
+    <p class="lead">
+    Click <a href="/new">create type</a> and fill the form with a name and
+    an optional description (accepts <a href="http://daringfireball.net/projects/markdown/syntax#link">markdown</a> syntax).
+    To let other people easily find and use a type, set a meaningful name and a clear description.
+    </p>
+
+    <div class="overlay">
+      <div class="ao-item oo-item-create">
+        <div class="ao-preview">
+          <img src="/images/how/create.png">
+          <div class="ao-annotations">
+            <span style="top: 7%; left: 29%; width: 170px;" class="from-right">Create type link</span>
+            <span style="top: 27%; left: -3%; width: 170px;">Meaningful type name</span>
+            <span style="top: 42.5%; left: -9.6%; width: 220px;">Optional type description</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <h2>Properties</h2>
 
     <p class="lead">
-    Once you have filled the required information you are asked to create the type properties.
-    For a light they could be <code>status</code>, <code>intensity</code>, <code>color</code>
-    and <code>blinking times</code>.
+    Now lets focus to the type properties. A property is whatever vary in a device during time.
+    It can be the intensity in a dimmer, the temperature in a cooling system or the volume in a
+    television.
+
+    Supposing we want to create a basic light where I can change it status (on/off) and where
+    I can decide the light intensity, we are defining a light with two properties:
+    <code>status</code> and <code>intensity</code>.
     </p>
 
-    <img src="/images/how-2.png" class="img-polaroid">
+    <div class="overlay">
+      <div class="ao-item">
+        <div class="ao-preview oo-item-property-create">
+          <img src="/images/how/property-create.png">
+          <div class="ao-annotations">
+            <span style="top: 78%; left: 26%; width: 170px;" class="from-right">Create property link</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <p class="lead">
-    To add a new property click "create new property". A modal form will appear
-    asking for the following params.
+    To create a property click <code>create property</code> and fill the form with the required
+    field.
     </p>
 
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>Name</td>
-          <td>A descriptive name for the property</td>
-        </tr>
-        <tr>
-          <td>Type</td>
-          <td>
-            Property accepted values as <code>text</code>,
-            <code>number</code>, <code>range</code> and <code>color</code>.
-          </td>
-        </tr>
-        <tr>
-          <td>Default</td>
-          <td>
-            Value assigned to the device property when initialized.
-          </td>
-        </tr>
-        <tr>
-          <td>Suggested</td>
-          <td>
-            List of value/description pairs (visible when type is not set to range).
-            Learn more on <a href="http://dev.lelylan.com/community/faq#suggested-values">dev center</a>.
-          </td>
-        </tr>
-        <tr>
-          <td>Range</td>
-          <td>
-            Accepted values defined between a min, max and step value
-            (visible when type is set to range).
-          </td>
-        </tr>
-    </table>
-
-    <img src="/images/how-3.png" class="img-rounded">
+    <ul>
+      <li>Name - property name.</li>
+      <li>Type - accepted property value type (strings, colors, numbers and ranges).</li>
+      <li>Default - property value assigned to the device when initialized.</li>
+      <li>Accepts - accepted value/description pairs (visible when type is <code>string</code>). <a href="http://dev.lelylan.com/community/faq#suggested-values">Learn more</a></li>
+      <li>Range - accepted values defined between a min, max and step value. Visible when type is <code>range</code>.</li>
+    </ul>
 
     <p class="lead">
-    Below you can see a couple of examples defining for a light the properties status and intensity.
-    To better understand how properties works <a href="/popular">check out some defined types</a>
-    or learn more about <a href="http://dev.lelylan.com/api/types/properties">Lelylan Properties API</a>
-    (in private beta).
+    Going back to our basic light example, the property <code>status</code> accepts string
+    values <code>on</code> and <code>off</code> (which pairs with <code>On</code> and
+    <code>Off</code> in visualization) and by default sets the device property to
+    <code>on</code> when a device is initialized with this type.
+    </p>
+
+    <div class="overlay">
+      <div class="ao-item">
+        <div class="ao-preview oo-item-property-create">
+          <img src="/images/how/property-status.png">
+          <div class="ao-annotations">
+            <span style="top: 30%; left: -68%; width: 220px;">Status accepts string values</span>
+            <span style="top: 42.5%; left: 40%; width: 180px;" class="from-right">Default value to on</span>
+            <span style="top: 55%; left: -50.5%; width: 150px;">Accepted values</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead">
+    Another example is the property <code>intensity</code> where the main difference is that
+    it does not accept string values but a range value from 0 to 100 with a step of 1.
+    </p>
+
+    <div class="overlay">
+      <div class="ao-item">
+        <div class="ao-preview oo-item-property-create">
+          <img src="/images/how/property-intensity.png">
+          <div class="ao-annotations">
+            <span style="top: 32%; left: -68%; width: 230px;">Intensity accepts string values</span>
+            <span style="top: 46%; left: 40%; width: 180px;" class="from-right">Default value to 100</span>
+            <span style="top: 59.5%; left: -60.5%; width: 190px;">Accepted range values</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead">
+    <span class="label label-info">NOTICE</span>
+    To better understand how properties works learn how <a href="http://dev.lelylan.com/api/types/properties">Lelylan Properties API</a> works.
     </p>
 
   </div>

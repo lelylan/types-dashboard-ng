@@ -3,6 +3,8 @@
 var test = angular.module('test', ['lelylan.dashboards.types', 'ngMockE2E']);
 
 test.run(function($httpBackend) {
+  // Get user profile
+  $httpBackend.whenGET('http://api.lelylan.com/me').respond({ id: 1, email: 'alice@example.com' });
   // Get the created types
   $httpBackend.whenGET('http://api.lelylan.com/types?per=100').respond(yourTypes);
   // Get category based types

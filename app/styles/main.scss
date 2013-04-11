@@ -1,5 +1,6 @@
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+@import "overlay";
 
 $lelylanColor:    #00979D !default;
 $typeBorderColor: #DDD !default;
@@ -221,7 +222,6 @@ hr {
 }
 
 .dashboard .presentation img {
-  margin-bottom: 20px !important;
 }
 
 .dashboard .presentation code {
