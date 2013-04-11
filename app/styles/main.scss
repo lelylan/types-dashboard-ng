@@ -149,11 +149,12 @@ hr {
   color: #239cbb;
   font-weight: 200;
   letter-spacing: 2px;
-  margin: 30px 0 20px;
-  padding: 0px 30px;
+  margin: 10px 0 20px;
+  padding: 0px 0 0 30px;
 }
 
 .dashboard .home h1.title {
+  margin-top: 25px;
   font-size: 82px;
 }
 
@@ -172,7 +173,7 @@ hr {
 
 .dashboard .presentation .description p {
   font-size: 15px;
-  line-height: 22px;
+  line-height: 24px;
 }
 
 .dashboard .presentation .description p.summary{
@@ -181,9 +182,10 @@ hr {
 }
 
 .dashboard .presentation .description .btn {
-  width: 230px;
-  height: 26px;
-  font-size: 22px;
+  line-height: 20px;
+  width: 200px;
+  height: 20px;
+  font-size: 18px;
   margin: 10px;
   letter-spacing: 1px;
 }
@@ -200,13 +202,22 @@ hr {
 }
 
 .dashboard .presentation ul {
-  list-style: none;
+}
+
+.dashboard .presentation p {
+  margin-bottom: 10px;
 }
 
 .dashboard .presentation h2 {
   margin-top: 30px;
   font-weight: 200;
-  font-size: 38px;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.dashboard .presentation li {
+  font-weight: 200;
+  line-height:24px;
 }
 
 .dashboard .presentation img {
@@ -214,7 +225,7 @@ hr {
 }
 
 .dashboard .presentation code {
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   background-color: rgb(255, 255, 255);
 }
