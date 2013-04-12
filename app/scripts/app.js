@@ -1,10 +1,6 @@
 'use strict';
 
-var app = angular.module('lelylan.dashboards.types', [
-  'ui.bootstrap',
-  'lelylan',
-  'lelylan.components.type'
-]);
+var app = angular.module('lelylan.dashboards.types', ['ui.bootstrap', 'lelylan.components.type']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
