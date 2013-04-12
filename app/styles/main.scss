@@ -7,9 +7,18 @@ $typeBorderColor: #DDD !default;
 $linkColor:       #00979D !default;
 $linkColorHover:  #01cf9e !default;
 
+/* Spinner */
+
+#lelylan-request-loading {
+  display: none;
+  margin-top: 4px;
+}
+
 /*
  * Dashboard (generic)
  */
+
+
 
 body {
   background-color: #e8e8e8 !important;

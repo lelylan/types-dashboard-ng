@@ -33,4 +33,5 @@ test.run(function($httpBackend, LoggedUser, Simulation) {
 
   $httpBackend.whenGET(/partials/).passThrough();
   $httpBackend.whenGET(/templates/).passThrough();
+  $httpBackend.when('GET', /types.lelylan.com/).passThrough(); // to test the spinner visualization
 });
