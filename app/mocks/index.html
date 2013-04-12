@@ -15,11 +15,12 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
+              <login class="nav pull-right" text="Sign In" client="types-dashboard-id" redirect="redirect" scope="types" state="none"></login>
               <ul class="nav pull-right">
                 <li><a href="/what">Learn more</a></li>
                 <li><a href="/how">How to create a type</a></li>
-                <li><a href="/how">Welcome Alice</a></li>
               </ul>
+
             </div>
           </div>
         </div>
@@ -66,7 +67,6 @@
         <!-- Footer  -->
 
         <footer class="pull-right">
-          <login client="types-dashboard-id" redirect="redirect" scope="type" state=""></login>
           <p>&copy; Lelylan 2013</p>
         </footer>
       </div>
@@ -75,9 +75,11 @@
     <script src="../scripts/vendor/angular/angular.js"></script>
     <script src="../scripts/vendor/angular/angular-resource.js"></script>
     <script src="../scripts/vendor/angular/angular-cookies.js"></script>
+
     <script src="../scripts/vendor/lelylan/lelylan.min.js"></script>
     <script src="../scripts/vendor/lelylan/device-component.min.js"></script>
     <script src="../scripts/vendor/lelylan/type-component.min.js"></script>
+
     <script src="../scripts/vendor/utils/underscore-min.js"></script>
     <script src="../scripts/vendor/utils/ui-bootstrap-0.2.0.js"></script>
     <script src="../scripts/vendor/utils/showdown.js"></script>
