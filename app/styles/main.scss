@@ -159,6 +159,20 @@ hr {
   font-size: 82px;
 }
 
+.dashboard .presentation h3,
+.dashboard .presentation h2 {
+  margin-top: 30px;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.dashboard .presentation h2 {
+  margin-top: 50px;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
 .dashboard .presentation h2.subtitle {
   padding: 20px 10px;
   font-size: 36px;
@@ -209,12 +223,6 @@ hr {
   margin-bottom: 10px;
 }
 
-.dashboard .presentation h2 {
-  margin-top: 30px;
-  font-weight: 200;
-  font-size: 28px;
-  line-height: 28px;
-}
 
 .dashboard .presentation li {
   font-weight: 200;
@@ -233,6 +241,17 @@ hr {
 .dashboard .presentation h4 {
   font-size: 26px;
   font-weight: 200;
+}
+
+.dashboard .presentation .label-info {
+  background-color: #239cbb;
+}
+
+.dashboard .presentation .notice {
+  padding: 5px 0 9px 0;
+  border-top: 1px solid #eee;
+  margin: 15px 0;
+  border-bottom: 1px solid #eee;
 }
 
 
