@@ -247,7 +247,11 @@ hr {
   background-color: #239cbb;
 }
 
-.dashboard .presentation .notice {
+.dashboard .presentation ul.summary {
+  font-size: 16px;
+}
+
+.dashboard .presentation .ul {
   padding: 5px 0 9px 0;
   border-top: 1px solid #eee;
   margin: 15px 0;
@@ -443,23 +447,9 @@ hr {
 
 // Type component refinements
 
-.type-component .header,
-.type-component .header .name,
-.type-component .sections .content {
-  padding-left: 0 !important;
-  padding-top: 0 !important;
-  margin-top:0 !important;
+.type-component .tc-header,
+.type-component .tc-header .tc-name .lead {
+  margin-top: 0 !important;
 }
 
-.type-component .header,
-.type-component .sections .content {
-  padding: 0px 5px !important;
-}
-
-.type-component .sections .header {
-  padding-top: 5px !important;
-  margin-bottom: 20px !important;
-}
-
-
-
+@import "type_component.min";

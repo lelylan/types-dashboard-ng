@@ -33,7 +33,7 @@ var type = {
   id: '1',
   name: 'Basic Light',
   description: 'The **Basic Light** type represents the most basic light structure.',
-  category: ['lights'],
+  categories: ['lights'],
   created_at: '2012-09-01T15:01:22Z',
   updated_at: '2012-09-01T15:01:22Z',
   properties: [{
