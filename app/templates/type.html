@@ -24,7 +24,7 @@
           <a href="#" class="show-more dropdown-toggle" ng-class="{tcactive: show.settings}"> More » </a>
           <ul class="dropdown-menu">
             <li><a href="#" class="show-simulation" ng-class="{atcctive: show.simulation}" ng-click="showSimulation()"><span class="icon-eye-open"></span> Simulate</a></li>
-            <li><a href="#" class="show-delete" ng-class="{tcactive: show.delete}" ng-click="showDelete()"><span class="icon-remove"></span> Delete</a></li>
+            <li><a href="#" class="show-delete" ng-class="{tcactive: show.delete}" ng-click="showDelete()" ng-show="user.id == type.owner_id"><span class="icon-remove"></span> Delete</a></li>
           </ul>
           </li>
         </ul>
@@ -444,12 +444,12 @@
           <p class="tc-description">Play with the widget the user will interact with</p>
         </div>
 
-        <device device-type="simulatedType" device-options="false" device-json="simulatedDevice"></device>
+        <device device-type="simulatedType" device-options="false" device-json="simulatedDevice" style="width:300px;"></device>
       </div>
 
       <!-- Type Delete -->
 
-      <div class="tc-more tc-delete" ng-show="show.delete">
+      <div class="tc-more tc-delete" ng-show="show.delete && (user.id == type.owner_id)">
         <hr>
 
         <div class="tc-header">
