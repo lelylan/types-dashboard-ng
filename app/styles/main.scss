@@ -2,10 +2,8 @@
 @import "compass_twitter_bootstrap_responsive";
 @import "overlay";
 
-$lelylanColor:    #00979D !default;
-$typeBorderColor: #DDD !default;
-$linkColor:       #00979D !default;
-$linkColorHover:  #01cf9e !default;
+$lelylanColor:      #239cbb !default;
+$typeBorderColor:   #DDD !default;
 
 /* Spinner */
 
@@ -18,7 +16,13 @@ $linkColorHover:  #01cf9e !default;
  * Dashboard (generic)
  */
 
+.dashboard .navbar-fixed-top a {
+  color: $linkColor !important;
+}
 
+.dashboard .navbar-fixed-top a:hover {
+  color: $linkColorHover !important;
+}
 
 body {
   background-color: #e8e8e8 !important;
@@ -255,8 +259,8 @@ hr {
 .dashboard .presentation .label-info {
   background-color: #239cbb;
 }
-
-.dashboard .presentation ul.summary {
+.dashboard .presentation div.summary p,
+.dashboard .presentation div.summary {
   font-size: 16px;
 }
 
