@@ -8,14 +8,6 @@ var popularTypesList = [{
   categories: ['lights'],
   created_at: '2012-09-01T15:01:22Z',
   updated_at: '2012-09-01T15:01:22Z',
-}, {
-  uri: 'http://api.lelylan.com/types/2',
-  id: '2',
-  name: 'Complex Light',
-  description: 'The **Comples Light** type represents the most complete light structure.',
-  categories: ['lights'],
-  created_at: '2012-09-01T15:01:22Z',
-  updated_at: '2012-09-01T15:01:22Z',
 }];
 
 var yourTypes = [{
@@ -44,7 +36,7 @@ var type = {
     name: 'Status',
     default: 'off',
     suggested: {'on': 'On', 'off': 'Off'},
-    type: 'text'
+    type: 'string'
   }, {
     uri: 'http://api.lelylan.com/properties/2',
     id: '2',
@@ -150,3 +142,12 @@ var type = {
     }]
   }]
 };
+
+var property = {
+  uri: 'http://api.lelylan.com/properties/1',
+  id: '1',
+  name: 'Status',
+  default: 'off',
+  suggested: {'on': 'On', 'off': 'Off'},
+  type: 'text'
+}

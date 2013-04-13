@@ -468,4 +468,8 @@ hr {
   margin-top: 0 !important;
 }
 
+.type-component .tc-simulation .tc-header {
+  display: none;
+}
+
 @import "type_component.min";
