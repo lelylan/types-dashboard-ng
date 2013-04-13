@@ -1,6 +1,6 @@
 'use strict';
 
-function DashboardCtrl($scope, $rootScope, $http) {
+function DashboardCtrl($scope, $rootScope, $http, $location) {
   $rootScope.active = '';
   $scope.oauth = {
     client:   '<client-id>',
@@ -8,9 +8,13 @@ function DashboardCtrl($scope, $rootScope, $http) {
     scope:    '<scope>',
     state:    '<state>'
   };
+
+  $scope.$on('lelylan:logout', function(event) {
+    $location.path('/');
+  });
 };
 
-DashboardCtrl.$inject = ['$scope', '$rootScope', '$http'];
+DashboardCtrl.$inject = ['$scope', '$rootScope', '$http', '$location'];
 
 var cl = new CanvasLoader('lelylan-request-loading');
 cl.setColor('#239cbb');
