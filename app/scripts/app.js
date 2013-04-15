@@ -8,7 +8,7 @@ app.config(['$routeProvider', function($routeProvider) {
     when('/what', { templateUrl: '/partials/what.html', controller: DashboardCtrl }).
     when('/how', { templateUrl: '/partials/how.html', controller: DashboardCtrl }).
     when('/popular', { templateUrl: '/partials/types.html', controller: PopularCtrl }).
-    when('/types', { templateUrl: '/partials/types.html', controller: PrivateCtrl }).
+    when('/types', { templateUrl: '/partials/types.html', controller: YoursCtrl }).
     when('/categories/:category', { templateUrl: '/partials/types.html',  controller: CategoryCtrl }).
     when('/new', { templateUrl: '/partials/new-type.html', controller: CreateCtrl }).
     when('/types/:typeId', { templateUrl: '/partials/type.html',  controller: TypeCtrl }).
