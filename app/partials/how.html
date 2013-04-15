@@ -4,7 +4,7 @@
 
   <div class="description">
 
-    <p class="lead">
+    <p>
     In this section we explain how to create a type. Even so, as the time passes, you will
     find more and more type already defined. For this reason we highly suggest to double check
     for existing types in the <a href="/popular">popular section</a> or in the categories.
@@ -31,7 +31,7 @@
 
     <h2>Properties</h2>
 
-    <p class="lead">
+    <p>
     Now lets focus to the type properties. A property is whatever vary in a device during time.
     It can be the intensity in a dimmer, the temperature in a cooling system or the volume in a
     television.
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     To create a property click <code>create property</code> and fill the form with the required
     field.
     </p>
@@ -65,7 +65,7 @@
       <li>Range - accepted values defined between a min, max and step value. Visible when type is <code>range</code>.</li>
     </ul>
 
-    <p class="lead">
+    <p>
     Going back to our basic light example, the property <code>status</code> accepts string
     values <code>on</code> and <code>off</code> (which pairs with <code>On</code> and
     <code>Off</code> in visualization) and by default sets the device property to
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     Another example is the property <code>intensity</code> where the main difference is that
     it does not accept string values but a range value from 0 to 100 with a step of 1.
     </p>
@@ -103,7 +103,7 @@
       </div>
     </div>
 
-    <p class="lead notice">
+    <p class="notice">
     <span class="label label-info">NOTICE</span>
     To better understand how properties work check out <a href="http://dev.lelylan.com/api/types/properties">Lelylan Property API</a>.
     </p>
@@ -112,14 +112,14 @@
 
     <h2>Functions</h2>
 
-    <p class="lead">
+    <p>
     Once defined the properties lets move to the functions. Functions defines the daily
     interactions you have with the devices in your house like turning on a light, closing
     a door or raising the temperature in your room. With functions you can control any
     device in the same way you do everyday of your life.
     </p>
 
-    <p class="lead">
+    <p>
     With a function you can update one or more properties by setting a fixed value or
     by leaving the value empty. In the last case, when the function is executed, the value
     is asked to the user. For example, our basic light has three functions.
@@ -143,7 +143,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     To create a function go into the function section and click <code>create new function</code>.
     A form will pop up and the following fields will be required.
     </p>
@@ -153,7 +153,7 @@
       <li>Property - value associated to the property (when empty the value must be filled by the user)</li>
     </ul>
 
-    <p class="lead">
+    <p>
     Going back to our basic light example, the function <code>turn on</code> sets the property
     status to <code>on</code>. This means that no interactions with the user are required when
     executing the function.
@@ -170,7 +170,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     Another example is the function <code>set intensity</code> where the main difference is that
     the property intensity is not set to any value. This convention means that an interactions
     with the user is required to set the light intensity before executing the function.
@@ -187,7 +187,7 @@
       </div>
     </div>
 
-    <p class="lead notice">
+    <p class="notice">
     <span class="label label-info">NOTICE</span>
     To better understand how functions work check out <a href="http://dev.lelylan.com/api/types/functions">Lelylan Function API</a>.
     </p>
@@ -196,7 +196,7 @@
 
     <h2>Statuses</h2>
 
-    <p class="lead">
+    <p>
     Properties are not always enough to describe the status of a device. Think at a roller
     shutter for example. It could have the property <code>aperture</code> to <code>100</code>
     when open and <code>0</code> when closed. But what if the roller shutter is opening? It
@@ -217,7 +217,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     To create a status go into the status section and click <code>create new status</code>.
     A form will pop up and the following fields will be required.
     </p>
@@ -228,14 +228,14 @@
       <li>Property - values (comma separated list) causing the property match.</li>
     </ul>
 
-    <p class="lead notice">
+    <p class="notice">
     <span class="label label-info">NOTICE</span>
     The default function can be really useful to define a "one click function". For example
     when the light is on the default function is turn off, whereas when the light is off the
     default function is turn on.
     </p>
 
-    <p class="lead">
+    <p>
     Going back to our basic light example, the <code>light ON</code> status is active when the
     property <code>status</code> is <code>on</code>. The default action that we associate to the
     <code>Light On</code> status is <code>Turn Off</code>.
@@ -252,7 +252,7 @@
       </div>
     </div>
 
-    <p class="lead notice">
+    <p class="notice">
     <span class="label label-info">NOTICE</span>
     Type status is still work in progress, use it for simple scenarios.
     To better understand how properties work check out <a href="http://dev.lelylan.com/api/types/statuses">Lelylan Status API</a>.
@@ -262,7 +262,7 @@
 
     <h2>Categories</h2>
 
-    <p class="lead">
+    <p>
     Categories (e.g. lights, locks, appliances, etc.) are used to group together similar
     devices. For example a <code>standard light</code> (on/off) and an <code>RGB light</code>
     (with color settings) are two different types, but they still belongs to the same category.
@@ -283,7 +283,7 @@
       </div>
     </div>
 
-    <p class="lead notice">
+    <p class="notice">
     <span class="label label-info">NOTICE</span>
     Categories are really important to organize your devices. Give them some love. And if you
     think we are missing an important one don't hesitate to
@@ -294,7 +294,7 @@
 
     <h2>Device Simulation</h2>
 
-    <p class="lead">
+    <p>
     Once you have completed the type definition you can simulate the control of a device using
     your type. Here you can test if the type behaviour is the desired one going back and forward
     until you reach the desired result. To simulate the interaction click on the simulate link.
@@ -311,7 +311,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     Here you can now interact with a simulated device that uses your brand new type.
     </p>
 
@@ -333,7 +333,7 @@
 
     <h2>Deleting a type</h2>
 
-    <p class="lead">
+    <p>
     Deleting a type can be dangerous whenever you have previously released any physical device
     using it. The physical device is mutually connected to a type, meaning that if the type is
     deleted the physical device will not be accessible (unless you update its logics).
@@ -350,7 +350,7 @@
       </div>
     </div>
 
-    <p class="lead">
+    <p>
     To delete your type first insert the type name and then click the delete button.
     </p>
 
@@ -371,7 +371,7 @@
 
     <div class="summary">
 
-      <p class="lead">
+      <p>
       Now go and <a href="/new">create your first type</a>!
       We also leave you with a few links that might be of your interest. If you
       have any open question do not hesitate to <a href="mailto:touch@lelylan.com">Mail</a>
