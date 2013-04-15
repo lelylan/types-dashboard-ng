@@ -145,41 +145,45 @@ body {
 
   /* Create form type */
 
-  .create-view .control-group {
+  .new-view h1 {
+    font-weight: 200;
+  }
+
+  .new-view .control-group {
     padding: 3px 0;
   }
 
-  .create-view .type-name input,
-  .create-view .type-description textarea {
+  .new-view .type-name input,
+  .new-view .type-description textarea {
     font-size: 26px;
     font-weight: 200;
     line-height: 32px;
     margin-bottom: 0;
   }
 
-  .create-view .type-name input {
+  .new-view .type-name input {
     height: 40px;
   }
 
-  .create-view .type-name .add-on,
-  .create-view .type-description .add-on {
+  .new-view .type-name .add-on,
+  .new-view .type-description .add-on {
     font-size: 18px;
     height: 122px;
     width: 100px;
     padding-top: 10px;
   }
 
-  .create-view .type-name .add-on {
+  .new-view .type-name .add-on {
     height: 30px;
     padding-top: 14px;
   }
 
-  .create-view .type-description .add-on {
+  .new-view .type-description .add-on {
     height: 122px;
   }
 
 
-  /* Prsesentation pages */
+  /* Prsesentation pages (general) */
 
   .presentation {
     margin: 10px 0;
@@ -219,6 +223,12 @@ body {
     font-weight: 200;
   }
 
+  .presentation .description p {
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+
   .presentation .description .btn {
     line-height: 20px;
     width: 240px;
@@ -242,8 +252,11 @@ body {
     background-color: #239cbb;
   }
 
+  .presentation .more-buttons {
+    text-align: center;
+  }
 
-  /* Home Page */
+  /* Presentation home page */
 
   .home {
     text-align: center;
@@ -273,14 +286,13 @@ body {
     font-size: 18px;
     line-height: 28px;
   }
-
-  /* Create a type page */
-
-  .how div.summary p,
-  .how div.summary {
-    font-size: 16px;
-  }
 }
 
+/* Type component overriding */
+
+.tc-header,
+.tc-description {
+  margin-bottom: 0;
+}
 
 @import "type_component.min";
