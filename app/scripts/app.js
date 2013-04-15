@@ -14,3 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
     when('/types/:typeId', { templateUrl: '/partials/type.html',  controller: TypeCtrl }).
     otherwise({redirectTo: '/'});
 }]);
+
+//directives.config(['$locationProvider', function($locationProvider) {
+  //$locationProvider.html5Mode(false).hashPrefix('!');
+//}]);

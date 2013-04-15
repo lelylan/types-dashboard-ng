@@ -11,6 +11,7 @@ test.run(function($httpBackend, LoggedUser, Simulation) {
   $httpBackend.whenGET('http://api.lelylan.com/me').respond({ id: 1, email: 'alice@example.com' });
   $httpBackend.whenGET('http://api.lelylan.com/types?per=100').respond(yourTypes);
   $httpBackend.whenGET('http://api.lelylan.com/types/public?category=lights').respond(yourTypes);
+  $httpBackend.whenGET(/http:\/\/api.lelylan.com\/types\/public/).respond([]);
   $httpBackend.whenGET('http://api.lelylan.com/types/1').respond(type);
   $httpBackend.whenPOST('http://api.lelylan.com/types').respond(type);
 
