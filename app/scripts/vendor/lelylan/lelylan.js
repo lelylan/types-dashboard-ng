@@ -666,7 +666,7 @@ directives.directive('login', ['AccessToken', 'ImplicitFlow', 'Profile', 'Logged
 
     var getCookie    = function() { return $cookies[scope.client]; };
     var setCookie    = function(value) { $cookies[scope.client] = value; };
-    var deleteCookie = function() { delete $cookies[scope.client]; };
+    var deleteCookie = function() { delete $cookies[scope.client]; delete $cookies['#!' + scope.client]; };
 
     var fireLoginEvent  = function() { $rootScope.$broadcast('lelylan:login', AccessToken.get()); }
     var fireLogoutEvent = function() { $rootScope.$broadcast('lelylan:logout'); }
