@@ -2,6 +2,7 @@
 
 Source code for [Lelylan Types Dashboard](http://t.lelylan.com).
 
+![Lelylan Components](http://i.imgur.com/JXdOqSF.png)
 
 ## Introduction
 
