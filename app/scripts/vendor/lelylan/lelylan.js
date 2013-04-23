@@ -14,6 +14,7 @@ angular.module('lelylan', [
   'lelylan.status',
   'lelylan.location',
   'lelylan.subscription',
+  'lelylan.category',
 
   // authorization
   'lelylan.loggedUser',
@@ -180,6 +181,15 @@ client.factory('Subscription', ['BasicRequestWrapper', '$resource', 'lelylan.con
     { update: { method: 'PUT' } } );
 
   return BasicRequestWrapper.wrap(resource, ['get', 'query', 'save', 'update', 'delete']);
+}]);
+
+'use strict';
+
+var client = angular.module('lelylan.category', ['ngResource']);
+
+client.factory('Category', ['RequestWrapper', '$resource', 'lelylan.config', function(RequestWrapper, $resource, config) {
+  var resource = $resource(config.endpoint + '/categories');
+  return RequestWrapper.wrap(resource, ['query']);
 }]);
 
 'use strict';
