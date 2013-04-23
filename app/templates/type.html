@@ -6,8 +6,8 @@
   <div class="tc-main" ng-show="!destroyed && loaded">
     <div class="tc-header">
       <div class="tc-name">
-        <p class="lead tc-editable" ng-show="config.inplace.name && (user.id == type.owner_id)" ng-click="config.inplace.name=false">{{type.name}}</p>
-        <p class="lead tc-not-editable" ng-show="config.inplace.name && (user.id != type.owner_id)">{{type.name}}</p>
+        <p class="lead tc-editable" ng-show="config.inplace.name && (user.id == type.owner.id)" ng-click="config.inplace.name=false">{{type.name}}</p>
+        <p class="lead tc-not-editable" ng-show="config.inplace.name && (user.id != type.owner.id)">{{type.name}}</p>
         <form class="tc-inplace tc-name-form" name="nameForm" ng-show="!config.inplace.name">
           <input type="text" name="name" ng-model="type.name" required>
           <button class="update btn btn-lelylan" ng-click="type.$update(init); config.inplace.name=true; nameForm.$setPristine();" ng-disabled="nameForm.$invalid || nameForm.$pristine">Update</button>
@@ -24,14 +24,14 @@
           <a href="#" class="show-more dropdown-toggle" ng-class="{tcactive: show.settings}"> More » </a>
           <ul class="dropdown-menu">
             <li><a href="#" class="show-simulation" ng-class="{atcctive: show.simulation}" ng-click="showSimulation()"><span class="icon-eye-open"></span> Simulate</a></li>
-            <li><a href="#" class="show-delete" ng-class="{tcactive: show.delete}" ng-click="showDelete()" ng-show="user.id == type.owner_id"><span class="icon-remove"></span> Delete</a></li>
+            <li><a href="#" class="show-delete" ng-class="{tcactive: show.delete}" ng-click="showDelete()" ng-show="user.id == type.owner.id"><span class="icon-remove"></span> Delete</a></li>
           </ul>
           </li>
         </ul>
       </div>
       <div class="tc-description">
-        <p class="lead tc-editable" ng-show="config.inplace.description && (user.id == type.owner_id)" ng-click="config.inplace.description=false" ng-bind-html-unsafe="type.shadowDescription"></p>
-        <p class="lead tc-not-editable" ng-show="config.inplace.description && (user.id != type.owner_id)" ng-bind-html-unsafe="type.shadowDescription"></p>
+        <p class="lead tc-editable" ng-show="config.inplace.description && (user.id == type.owner.id)" ng-click="config.inplace.description=false" ng-bind-html-unsafe="type.shadowDescription"></p>
+        <p class="lead tc-not-editable" ng-show="config.inplace.description && (user.id != type.owner.id)" ng-bind-html-unsafe="type.shadowDescription"></p>
         <form class="tc-inplace tc-description-form" name="descriptionForm" ng-show="!config.inplace.description">
           <textarea rows="2" name="description" ng-model="type.description" placeholder="Type description" required></textarea>
           <div>
@@ -55,11 +55,11 @@
         <div class="tc-header">
           <hr/>
           <div class="tc-options">
-            <ul class="nav nav-pills" ng-show="user.id == type.owner_id">
+            <ul class="nav nav-pills" ng-show="user.id == type.owner.id">
               <li><a href="#" class="add-property" ng-click="newProperty()"><i class="icon-plus"></i> Create new property</a></li>
             </ul>
           </div>
-          <hr/ ng-show="user.id == type.owner_id">
+          <hr/ ng-show="user.id == type.owner.id">
         </div>
 
         <!-- Property items -->
@@ -71,7 +71,7 @@
             <div class="tc-property-view">
               <div class="tc-property-name">
                 <p class="tc-name tc-title">{{property.name}}</p>
-                <div class="pull-right" ng-show="user.id == type.owner_id">
+                <div class="pull-right" ng-show="user.id == type.owner.id">
                   <a href="#" class="tc-edit" ng-click="open(property, 'edit', 'Edit')"><i class="icon-pencil"></i> Edit</a>
                   <a href="#" class="tc-delete" ng-click="open(property, 'delete')"><i class="icon-remove"></i> Delete</a>
                 </div>
@@ -223,11 +223,11 @@
         <div class="tc-header">
           <hr/>
           <div class="tc-options">
-            <ul class="nav nav-pills" ng-show="user.id == type.owner_id">
+            <ul class="nav nav-pills" ng-show="user.id == type.owner.id">
               <li><a href="#" class="add-function" ng-click="newFunction()"><i class="icon-plus"></i> Create new function</a></li>
             </ul>
           </div>
-          <hr/ ng-show="user.id == type.owner_id">
+          <hr/ ng-show="user.id == type.owner.id">
         </div>
 
         <!-- Function items -->
@@ -239,7 +239,7 @@
             <div class="tc-function-view">
               <div class="tc-function-name">
                 <p class="tc-name tc-title">{{function.name}}</p>
-                <div class="pull-right" ng-show="user.id == type.owner_id">
+                <div class="pull-right" ng-show="user.id == type.owner.id">
                   <a href="#" class="tc-edit" ng-click="open(function, 'edit', 'Edit')"><i class="icon-pencil"></i> Edit</a>
                   <a href="#" class="tc-delete" ng-click="open(function, 'delete')"><i class="icon-remove"></i> Delete</a>
                 </div>
@@ -332,11 +332,11 @@
         <div class="tc-header">
           <hr/>
           <div class="tc-options">
-            <ul class="nav nav-pills" ng-show="user.id == type.owner_id">
+            <ul class="nav nav-pills" ng-show="user.id == type.owner.id">
               <li><a href="#" class="add-status" ng-click="newStatus()"><i class="icon-plus"></i> Create new status</a></li>
             </ul>
           </div>
-          <hr/ ng-show="user.id == type.owner_id">
+          <hr/ ng-show="user.id == type.owner.id">
         </div>
 
         <!-- Statuses items -->
@@ -349,7 +349,7 @@
             <div class="tc-status-view">
               <div class="tc-status-name">
                 <p class="tc-name tc-title">{{status.name}}</p>
-                <div class="pull-right" ng-show="user.id == type.owner_id">
+                <div class="pull-right" ng-show="user.id == type.owner.id">
                   <a href="#" class="tc-edit" ng-click="open(status, 'edit', 'Edit')"><i class="icon-pencil"></i> Edit</a>
                   <a href="#" class="tc-delete" ng-click="open(status, 'delete')"><i class="icon-remove"></i> Delete</a>
                 </div>
@@ -445,7 +445,7 @@
       <!-- Categories -->
 
       <div class="tc-categories" ng-show="show.categories">
-        <ul class="editable" ng-show="user.id == type.owner_id">
+        <ul class="editable" ng-show="user.id == type.owner.id">
           <li class="tc-category" ng-repeat="category in config.categories">
           <a href="#" class="btn btn-lelylan tc-category-{{category.name}}" ng-class="{tcactive: category.active}" ng-click="toggleCategory(category)">
             <span class="icon-star"></span><br/>{{category.name}}
@@ -453,7 +453,7 @@
           </li>
         </ul>
 
-        <ul class="tc-not-editable" ng-show="user.id != type.owner_id">
+        <ul class="tc-not-editable" ng-show="user.id != type.owner.id">
           <li class="tc-category" ng-repeat="category in type.categories">
           <a class="btn btn-lelylan tcactive tc-category-{{category}}">
             <span class="icon-star"></span><br/>{{category}}
@@ -470,7 +470,7 @@
 
       <!-- Type Delete -->
 
-      <div class="tc-more tc-delete" ng-show="show.delete && (user.id == type.owner_id)">
+      <div class="tc-more tc-delete" ng-show="show.delete && (user.id == type.owner.id)">
         <hr>
 
         <div class="tc-header">
