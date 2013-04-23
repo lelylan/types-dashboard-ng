@@ -192,7 +192,8 @@ client.factory('Type', ['RequestWrapper', '$resource', 'lelylan.config', functio
     config.endpoint + '/types/:id',
     { id: '@id' },
     { update: { method: 'PUT' },
-      public: { method: 'GET', params: { id: 'public' }, isArray: true } } );
+      public: { method: 'GET', params: { id: 'public' }, isArray: true },
+      popular: { method: 'GET', params: { id: 'popular' }, isArray: true }} );
 
   return RequestWrapper.wrap(resource, ['get', 'query', 'save', 'update', 'delete']);
 }]);
@@ -584,7 +585,7 @@ directives.directive('login', ['AccessToken', 'ImplicitFlow', 'Profile', 'Logged
   var template =
     '<ul class="nav pull-right">' +
       '<li ng-show="show==\'out\'" class="login">' +
-        '<a href="#" ng-href="{{endpoint}}">{{text}}</a>' +
+        '<a href="#" ng-href="{{endpoint}}">{{text || \'Sign In\'}}</a>' +
       '</li>' +
       '<li ng-show="show==\'in\'" class="logout">' +
         '<a href="#" ng-click="logout()">Logout {{profile.email}}</a>' +
@@ -609,7 +610,7 @@ directives.directive('login', ['AccessToken', 'ImplicitFlow', 'Profile', 'Logged
 
   definition.link = function postLink(scope, element, attrs) {
 
-    scope.$watch('site', function(value) {
+    scope.$watch('client', function(value) {
       initialize();
       var token = AccessToken.initialize();
 
@@ -666,7 +667,11 @@ directives.directive('login', ['AccessToken', 'ImplicitFlow', 'Profile', 'Logged
 
     var getCookie    = function() { return $cookies[scope.client]; };
     var setCookie    = function(value) { $cookies[scope.client] = value; };
-    var deleteCookie = function() { delete $cookies[scope.client]; delete $cookies['#!' + scope.client]; };
+    var deleteCookie = function() {
+      delete $cookies[scope.client];
+      delete $cookies['#!' + scope.client]; // hack to let the cookie being deleted with bang uri http://svel.to/65c
+    };
+
 
     var fireLoginEvent  = function() { $rootScope.$broadcast('lelylan:login', AccessToken.get()); }
     var fireLogoutEvent = function() { $rootScope.$broadcast('lelylan:logout'); }

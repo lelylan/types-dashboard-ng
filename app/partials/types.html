@@ -27,12 +27,6 @@
     <p class="lead">To see your types you first need to <strong>Sign In</strong>.</p>
   </div>
 
-  <!-- Loading types message -->
-
-  <div class="loading alert alert-block" ng-show="loading && authorized">
-    <p class="lead">Loading resources...</p>
-  </div>
-
   <!-- No types found -->
   <div class="empty alert alert-block" ng-show="!loading && authorized && types.length==0">
     <p class="lead">No types were found. Be the first to <a href="/new">create a new one</a>.</p>
