@@ -57,10 +57,13 @@ body {
     padding: 5px 20px 10px !important;
   }
 
+  .navbar .nav-context {
+    margin-right: 0;
+  }
+
   .clearfix {
     margin-bottom: 0 !important;
   }
-
 
   /* Side */
 
@@ -227,6 +230,10 @@ body {
     font-size: 15px;
     line-height: 24px;
     margin-bottom: 10px;
+  }
+
+  .presentation .description li {
+    line-height: 24px;
   }
 
   .presentation .description .btn {
