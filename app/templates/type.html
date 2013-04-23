@@ -10,7 +10,7 @@
         <p class="lead tc-not-editable" ng-show="config.inplace.name && (user.id != type.owner.id)">{{type.name}}</p>
         <form class="tc-inplace tc-name-form" name="nameForm" ng-show="!config.inplace.name">
           <input type="text" name="name" ng-model="type.name" required>
-          <button class="update btn btn-lelylan" ng-click="type.$update(init); config.inplace.name=true; nameForm.$setPristine();" ng-disabled="nameForm.$invalid || nameForm.$pristine">Update</button>
+          <button class="update btn btn-lelylan" ng-click="updateName()" ng-disabled="nameForm.$invalid || nameForm.$pristine">Update</button>
           <button class="cancel btn" ng-click="type.name=original.name; config.inplace.name=true">Cancel</button>
         </form>
       </div>
@@ -35,7 +35,7 @@
         <form class="tc-inplace tc-description-form" name="descriptionForm" ng-show="!config.inplace.description">
           <textarea rows="2" name="description" ng-model="type.description" placeholder="Type description" required></textarea>
           <div>
-            <button class="update btn btn-lelylan" ng-click="type.$update(init); config.inplace.description=true; descriptionForm.$setPristine();" ng-disabled="descriptionForm.$invalid || descriptionForm.$pristine">Update</button>
+            <button class="update btn btn-lelylan" ng-click="updateDescription();" ng-disabled="descriptionForm.$invalid || descriptionForm.$pristine">Update</button>
             <button class="cancel btn" ng-click="type.description=original.description; config.inplace.description=true">Cancel</button>
           </div>
         </form>
@@ -97,7 +97,7 @@
                       <td class="tc-description-name">Default</td>
                       <td>
                         <p ng-show="!!property.default"><code>{{property.default}}</code></p>
-                        <p ng-show="!property.default">Undefined</p>
+                        <p ng-show="!property.default">Not defined</p>
                       </td>
                     </tr>
                   </thead>
@@ -134,14 +134,14 @@
                         <input class="input-xlarge" type="text" name="default" ng-model="property.default" placeholder="{{property.placeholders.default}}"><br/>
                       </div>
                     </div>
-                    <div class="tc-property-suggested control-group" ng-class="{error: form.suggested.$invalid}" ng-show="property.placeholders.suggested">
+                    <div class="tc-property-suggested control-group" ng-class="{error: form.suggested.$invalid}" ng-show="property.type != 'range'">
                       <div class="input-prepend">
                         <span class="add-on">Suggested</span>
-                        <input class="input-xlarge" type="text" name="default" ng-model="property.suggested" placeholder="{{property.placeholders.suggested}}"><br/>
+                        <input class="input-xlarge" type="text" name="default" ng-model="property.suggestedString" placeholder="{{property.placeholders.suggested}}"><br/>
                       </div>
                       <small class="help-inline muted">Suggested property must be a valid JSON object</small>
                     </div>
-                    <div class="tc-property-range control-group" ng-class="{error: form.min.$invalid || form.max.$invalid || form.step.$invalid}" ng-show="!property.placeholders.suggested">
+                    <div class="tc-property-range control-group" ng-class="{error: form.min.$invalid || form.max.$invalid || form.step.$invalid}" ng-show="property.type == 'range'">
                       <div class="input-prepend">
                         <span class="add-on">Range</span>
                         <span class="add-on tc-intern">Min</span><input class="tc-intern" type="text" name="min" ng-model="property.range.min" placeholder="{{property.placeholders.range.min}}" ng-required="property.type=='range'">
@@ -200,7 +200,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="suggestion in property._suggested | filter:search">
+                      <tr ng-repeat="suggestion in property.suggestedList | filter:search">
                         <td class="muted">{{suggestion.key}}</td>
                         <td>{{suggestion.value}}</td>
                       </tr>
@@ -474,7 +474,7 @@
         <hr>
 
         <div class="tc-header">
-          <p class="lead">Delete Type</p>
+          <p class="tc-lead">Delete Type</p>
           <p class="tc-description">Deleting your type is irreversible. Enter your device name  to confirm you want to permanently delete it.</p>
         </div>
 

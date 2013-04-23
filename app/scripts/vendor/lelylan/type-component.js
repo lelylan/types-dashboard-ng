@@ -3361,6 +3361,10 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
     };
 
     scope.updateProperty = function(property, form) {
+      // TODO refactoring
+      if (property.suggestedString == '') { property.suggestedString = null }
+      property.suggested = angular.fromJson(property.suggestedString);
+
       var resource = new Property(property);
       resource.$update(function() {
         scope.close(property, 'edit');
@@ -3370,6 +3374,9 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
     };
 
     scope.createProperty = function(property, form) {
+      // TODO refactoring
+      property.suggested = angular.fromJson(property.suggestedString)
+
       scope.close(property, 'edit');
       delete property['temp'];
       var resource = new Property(property);
@@ -3396,7 +3403,7 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
     scope.newFunction = function() {
       var _function = angular.copy(TCConfig.base.function);
       scope.type.functions.push(_function);
-      TCFunction.initFunction(_function, type);
+      TCFunction.initFunction(_function, scope.type);
       scope.open(_function, 'edit', 'Create');
     };
 
@@ -3404,7 +3411,7 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
       var resource = new Function(_function);
       resource.$update(function() {
         scope.close(_function, 'edit');
-        TCFunction.initFunction(_function, type);
+        TCFunction.initFunction(_function, scope.type);
         init();
       });
     };
@@ -3482,11 +3489,15 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
     /* ------------------- */
 
     scope.toggleCategory = function(category) {
+      var type = new Type();
+      type.id = scope.type.id;
+
       var present = _.include(scope.type.categories, category.name);
       if (present) { scope.type.categories = _.reject(scope.type.categories, function(_category) { return _category == category.name }) }
-      else { scope.type.categories.push(category.name) }
+      else         { scope.type.categories.push(category.name) }
 
-      scope.type.$update(init);
+      type.categories = scope.type.categories;
+      type.$update(function() { scope.type.categories = type.categories; init(); });
     }
 
 
@@ -3495,16 +3506,30 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
     /* --------------- */
 
     scope.updateType = function(resource, connection) {
-      scope.type['_' + connection] = angular.copy(scope.type[connection]);
-      scope.type[connection] = TCHelper.findIds(scope.type[connection]);
-      scope.type.$update(init);
-      scope.type[connection] = scope.type['_' + connection];
+      var type = new Type()
+      type.id = scope.type.id;
+      type[connection] = TCHelper.findIds(scope.type[connection]);
+      type.$update(function() { scope.type[connection] = type[connection]; init(); });
     }
 
     scope.destroy = function() {
       scope.type.$delete(function() {
         scope.destroyed = true;
       })
+    }
+
+    scope.updateName = function() {
+      var type = new Type({ id: scope.type.id, name: scope.type.name });
+      type.$update(function() { scope.type = type; init(); });
+      scope.config.inplace.name = true;
+      scope.nameForm.$setPristine();
+    }
+
+    scope.updateDescription = function() {
+      var type = new Type({ id: scope.type.id, description: scope.type.description });
+      type.$update(function() { scope.type = type; init(); });
+      scope.config.inplace.description=true;
+      scope.descriptionForm.$setPristine();
     }
 
 
@@ -3647,13 +3672,12 @@ service.factory('TCProperty', ['TCConfig', function(TCConfig) {
   }
 
   // Stringify the suggested object (to make it visible in a form field)
-  // TODO Refactoring
   service.normalizeProperty = function(property) {
-    if (property.suggested == "") { property.suggested = null; }
-    if (property.suggested && angular.isString(property.suggested)) { property.suggested = angular.fromJson(property.suggested); }
+    property.suggestedString = null;
     if (property.suggested && angular.isObject(property.suggested)) {
-      property._suggested = _.map(property.suggested, function(value, key){ return { key: key, value: value } });
-      property.suggested  = JSON.stringify(property.suggested);
+      property.suggestedList = JSON.stringify(property.suggested);
+      property.suggestedList = _.map(property.suggested, function(value, key){ return { key: key, value: value } });
+      property.suggestedString = JSON.stringify(property.suggested);
     }
   }
 
@@ -3716,8 +3740,7 @@ service.factory('TCCategory', ['TCConfig', function(TCConfig) {
 
   service.init = function(type) {
     _.each(TCConfig.categories, function(category, key) {
-      category.name = key;
-      category.active = _.include(type.categories, key)
+      category.active = _.include(type.categories, category.name)
     });
   }
 
@@ -3771,25 +3794,49 @@ service.factory('Simulation', ['Device', function(Device) {
 
 var service = angular.module('lelylan.components.type.services.config', [])
 
-service.factory('TCConfig', [function() {
+service.factory('TCConfig', ['Category', function(Category) {
   var service = {
   show: { properties: true },
   inplace: { name: true, description: true },
   property: {
-    types: { 'string': 'Strings', 'range': 'Range', 'number': 'Numbers', 'color': 'Colors' },
+    types: {
+      'text': 'Text',
+      'range': 'Range',
+      'number': 'Number',
+      'color': 'Color',
+      'password': 'Password',
+      'date': 'Date',
+      'time': 'Time',
+      'datetime': 'Date & Time',
+      'url': 'URL' },
     placeholders: {
-      string: { default: 'off',  suggested: JSON.stringify({'on': 'On', 'off': 'Off'}) },
-      number: { default: '0',    suggested: JSON.stringify({'0': 'Min', '100': 'Max'}) },
-      color:  { default: '#FFF', suggested: JSON.stringify({'#FFF': 'White', '#000': 'Black'}) },
-      range:  { default: '0',    range: { min: 0, max: 100, step: 0.1 } } } },
-  categories: { lights: {}, locks: {}, thermostats: {}, sensors: {}, meters: {}, alarms: {}, videos: {}, appliances: {}, others: {} },
+      text:     { default: 'off', suggested: JSON.stringify({'on': 'On', 'off': 'Off'}) },
+      number:   { default: '0', suggested: JSON.stringify({'0': 'Min', '50': 'Medium', '100': 'Max'}) },
+      range:    { default: '0', range: { min: 0, max: 100, step: 0.1 } },
+      color:    { default: '#FFF', suggested: JSON.stringify({'#FFF': 'White', '#000': 'Black'}) },
+      password: { default: '******', suggested: '' },
+      url:      { default: 'http://example.com', suggested: '' },
+      time:     { default: '08:00', suggested: '' },
+      date:     { default: '1861-03-17', suggested: '' },
+      datetime: { default: '1861-03-17 12:45:29Z', suggested: '' } } },
+  categories: Category.query(),
   base: {
-    property: { name: '', temp: true, isA: 'property', type: 'string' },
+    property: { name: '', temp: true, isA: 'property', type: 'text' },
     function: { name: '', temp: true, isA: 'function', properties: [{}] },
     status:   { name: '', temp: true, isA: 'status',   properties: [{}], function: {} } } };
 
   return service;
 }]);
+
+    //- text
+    //- number
+    //- range
+    //- color
+    //- password
+    //- date
+    //- time
+    //- datetime
+    //- url
 
 'use strict';
 
@@ -3813,7 +3860,7 @@ service.factory('TCHelper', [function() {
 
   // Returns all resource IDs for a list
   service.findIds = function(resources) {
-    _.reduce(resources, function(result, val) { return result.concat(val.id); }, []);
+    return _.reduce(resources, function(result, val) { return result.concat(val.id); }, []);
   }
 
   return service;
