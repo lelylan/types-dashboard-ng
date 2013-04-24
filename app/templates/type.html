@@ -118,7 +118,7 @@
                     <div class="tc-property-name control-group" ng-class="{error: form.name.$invalid}">
                       <div class="input-prepend">
                         <span class="add-on">Name</span>
-                        <input class="input-xlarge" type="text" name="name" ng-model="property.name" placeholder="Property name" required><br/>
+                        <input class="input-xlarge" type="text" name="name" ng-model="property.name" placeholder="Property name" autofocus required><br/>
                       </div>
                     </div>
                     <div class="tc-property-type control-group" ng-class="{error: form.type.$invalid}">
@@ -278,7 +278,7 @@
                     <div class="tc-function-name control-group" ng-class="{error: form.name.$invalid}">
                       <div class="input-prepend">
                         <span class="add-on">Name</span>
-                        <input class="input-xlarge" type="text" name="name" ng-model="function.name" placeholder="Function name" required><br/>
+                        <input class="input-xlarge" type="text" name="name" ng-model="function.name" placeholder="Function name" autofocus required><br/>
                       </div>
                     </div>
                     <div class="tc-function-property function-property-{{property.id}} control-group" ng-repeat="property in function.properties" ng-class="{error: !property.id}">
@@ -392,7 +392,7 @@
                     <div class="tc-status-name control-group" ng-class="{error: form.name.$invalid}">
                       <div class="input-prepend">
                         <span class="add-on">Name</span>
-                        <input class="input-xlarge" type="text" name="name" ng-model="status.name" placeholder="Status name" required><br/>
+                        <input class="input-xlarge" type="text" name="name" ng-model="status.name" placeholder="Status name" autofocus required><br/>
                       </div>
                     </div>
                     <div class="tc-status-function tc-status-function-{{property.id}} control-group">
@@ -483,7 +483,7 @@
             <div class="control-group" ng-class="{error: confirm!=type.name}">
               <div class="input-prepend">
                 <span class="add-on">Type name</span>
-                <input class="input-medium" type="text" name="name" ng-model="confirm">
+                <input class="input-medium" type="text" name="name" ng-model="confirm" autofocus>
                 <button class="tc-destroy btn btn-danger" ng-click="destroy()" ng-disabled="confirm!=type.name">Delete</button>
               </div>
             </div>
