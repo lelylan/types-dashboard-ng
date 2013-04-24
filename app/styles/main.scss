@@ -18,7 +18,8 @@ body {
   padding-top: 40px;
 }
 
-.dashboard input {
+.dashboard input,
+.dashboard textarea {
   @include placeholder(#ccc);
 }
 
@@ -57,10 +58,13 @@ body {
     padding: 5px 20px 10px !important;
   }
 
+  .navbar .nav-context {
+    margin-right: 0;
+  }
+
   .clearfix {
     margin-bottom: 0 !important;
   }
-
 
   /* Side */
 
@@ -89,7 +93,7 @@ body {
   .dashboard-content {
     background-color: #fff;
     border: 1px solid $lineColor;
-    min-height: 380px;
+    min-height: 760px;
     padding: 20px;
   }
 
@@ -104,9 +108,23 @@ body {
 
   /* Type list */
 
-  .type h1.name a {
-    font-size: 48px;
+  .type hr {
+    margin-top: 10px;
+  }
+
+  .type p.name,
+  .type p.name a,
+  .type .categories a {
+    margin: 0;
+    padding: 0;
+  }
+
+  .type p.name a {
+    font-size: 28px;
     font-weight: 200;
+    line-height: 16px;
+    margin: 0;
+    padding: 0
   }
 
   .type .name a:hover {
@@ -131,6 +149,7 @@ body {
 
   .type .categories a {
     background-color: transparent;
+    padding-left: 10px;
   }
 
 
@@ -159,6 +178,7 @@ body {
     font-weight: 200;
     line-height: 32px;
     margin-bottom: 0;
+    padding-left: 10px;
   }
 
   .new-view .type-name input {
@@ -227,6 +247,10 @@ body {
     font-size: 15px;
     line-height: 24px;
     margin-bottom: 10px;
+  }
+
+  .presentation .description li {
+    line-height: 24px;
   }
 
   .presentation .description .btn {

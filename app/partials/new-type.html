@@ -5,7 +5,7 @@
 
   <div ng-show="authorized">
     <form class="compact" name="form">
-      <div class="type-name control-group" ng-class="{error: form.name.$invalid}">
+      <div class="type-name control-group">
         <div class="input-prepend">
           <span class="add-on">Name</span>
           <input class="input-xxlarge" type="text" name="name" ng-model="type.name" placeholder="Type name (required)" required><br/>
@@ -16,7 +16,7 @@
           <span class="add-on">Description</span>
           <textarea class="input-xxlarge" rows="4" name="description" ng-model="type.description" placeholder="Type description (optional)"></textarea><br/>
         </div>
-        <small class="help-inline muted">Accepts <a href="http://daringfireball.net/projects/markdown/" target="blank">markdown</a> syntax</small>
+        <small class="help-inline muted">Use <a href="http://daringfireball.net/projects/markdown/" target="blank">markdown</a> to give some style</small>
       </div>
       <button class="create btn btn-lelylan" ng-click="create()" ng-disabled="form.$invalid"><i class="icon-white icon-pencil"></i> Create</button>
     </form>

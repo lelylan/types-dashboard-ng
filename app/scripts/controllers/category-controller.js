@@ -3,8 +3,11 @@
 function CategoryCtrl(Type, $scope, $routeParams, $rootScope) {
   $rootScope.active = $routeParams.category;
   $scope.authorized = true;
-  $scope.loading    = false;
-  $scope.types      = Type.public({ category: $routeParams.category }, function(){ $scope.message = false });
+  $scope.loading = true;
+
+  $scope.types = Type.public({ categories: $routeParams.category }, function(){
+    $scope.loading = false
+  });
 };
 
 CategoryCtrl.$inject = ['Type', '$scope', '$routeParams', '$rootScope'];
