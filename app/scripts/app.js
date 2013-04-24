@@ -15,6 +15,3 @@ app.config(['$routeProvider', function($routeProvider) {
     otherwise({redirectTo: '/'});
 }]);
 
-//directives.config(['$locationProvider', function($locationProvider) {
-  //$locationProvider.html5Mode(false).hashPrefix('!');
-//}]);
