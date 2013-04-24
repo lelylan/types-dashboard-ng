@@ -13,7 +13,11 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav pull-right" text="Sign In" client="types-dashboard-id" redirect="redirect" scope="types" state="none"></login>
+              <login class="nav" redirect="http://localhost:3501/"
+                     client="81e265dbf00569f9ba39dcc0dc0043020cdb4d2030ad77233be7c27aa447977e"
+                     scope="types"
+                     site="http://localhost:3000">
+              </login>
               <ul class="nav pull-right nav-context">
                 <li><a href="/what">Learn more</a></li>
                 <li><a href="/how">How to create a type</a></li>
@@ -92,8 +96,8 @@
     <script src="../scripts/vendor/utils/canvasloader.0.9.1.min.js"></script>
 
     <!-- Test helpers -->
-    <script src="../scripts/vendor/angular/angular-mocks.js"></script>
     <script src="../scripts/vendor/lelylan/lelylan-mocks.js"></script>
+    <script src="../scripts/vendor/angular/angular-mocks.js"></script>
     <script src="../scripts/vendor/lelylan/lelylan-fixtures.js"></script>
   </body>
 </html>

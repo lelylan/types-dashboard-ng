@@ -816,6 +816,7 @@ angular.mock.$HttpBackendProvider = function() {
  * @return {Object} Instance of $httpBackend mock
  */
 function createHttpBackendMock($delegate, $browser) {
+
   var definitions = [],
       expectations = [],
       responses = [],

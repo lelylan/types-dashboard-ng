@@ -28,8 +28,7 @@ var type = {
   categories: ['lights'],
   created_at: '2012-09-01T15:01:22Z',
   updated_at: '2012-09-01T15:01:22Z',
-  owner_id: 1,
-  creator_id: 1,
+  owner: { id: 1 },
   properties: [{
     uri: 'http://api.lelylan.com/properties/1',
     id: '1',

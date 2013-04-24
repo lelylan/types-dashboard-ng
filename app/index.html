@@ -99,6 +99,13 @@
     <script>
       var app = angular.module('app', ['lelylan.dashboards.types']);
       app.value('lelylan.config', { endpoint: 'http:///localhost\\:9000' });
+
+      app.run(['$httpBackend', function($httpBackend) {
+        $httpBackend.whenGET(/.*/).passThrough();
+        $httpBackend.whenPOST(/.*/).passThrough();
+        $httpBackend.whenPUT(/.*/).passThrough();
+        $httpBackend.whenDELETE(/.*/).passThrough();
+      }]);
     </script>
   </body>
 </html>
