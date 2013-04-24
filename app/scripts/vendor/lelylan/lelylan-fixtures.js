@@ -151,3 +151,17 @@ var property = {
   suggested: {'on': 'On', 'off': 'Off'},
   type: 'text'
 }
+
+var categories = [
+  { name: 'lights' },
+  { name: 'locks' },
+  { name: 'thermostats' },
+  { name: 'alarms' },
+  { name: 'meters' },
+  { name: 'cameras' },
+  { name: 'windows' },
+  { name: 'appliances' },
+  { name: 'garddenings' },
+  { name: 'sensors' },
+  { name: 'others' }
+]

@@ -5,7 +5,7 @@ function YoursCtrl(Type, AccessToken, $scope, $rootScope) {
   $scope.authorized = (!!AccessToken.get().access_token);
   $scope.loading    = true;
 
-  $scope.types = Type.query({ per: 100 }, function(){
+  $scope.types = Type.query({ per: 250 }, function(){
     $scope.loading = false;
   });
 };

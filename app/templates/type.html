@@ -370,7 +370,7 @@
                       <td class="tc-description-name" row-span="{{status.properties.length}}">Properties</td>
                       <td>
                         <div ng-repeat="property in status.properties">
-                          <p>When <code>{{property.name}}</code> is <code>{{property.values}}</code>.</p>
+                          <p>Active when <code>{{property.name}}</code> is any value<span ng-show="property.values"> in <code>{{property.values}}</code></span>.</p>
                         </div>
                       </td>
                     </tr>

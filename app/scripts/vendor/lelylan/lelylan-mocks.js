@@ -9,14 +9,15 @@ test.run(function($httpBackend, LoggedUser, Simulation) {
   /* Dashboard */
 
   $httpBackend.whenGET('http://api.lelylan.com/me').respond({ id: 1, email: 'alice@example.com' });
-  $httpBackend.whenGET('http://api.lelylan.com/types?per=100').respond(yourTypes);
-  $httpBackend.whenGET('http://api.lelylan.com/types/public?category=lights').respond(yourTypes);
+  $httpBackend.whenGET('http://api.lelylan.com/types?per=250').respond(yourTypes);
+  $httpBackend.whenGET('http://api.lelylan.com/types/public?categories=lights').respond(yourTypes);
   $httpBackend.whenGET(/http:\/\/api.lelylan.com\/types\/public/).respond([]);
   $httpBackend.whenGET('http://api.lelylan.com/types/1').respond(type);
   $httpBackend.whenPOST('http://api.lelylan.com/types').respond(type);
 
   /* Type */
 
+  $httpBackend.whenGET('http://api.lelylan.com/categories').respond(categories);
   $httpBackend.whenGET('http://api.lelylan.com/types/1').respond(type);
   $httpBackend.whenDELETE('http://api.lelylan.com/types/1').respond(type);
   $httpBackend.whenPUT(/http:\/\/api.lelylan.com\/types/)

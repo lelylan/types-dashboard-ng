@@ -10,6 +10,7 @@ function DashboardCtrl($scope, $rootScope, $http, $location) {
   };
 
   $scope.$on('lelylan:logout', function(event) {
+    $rootScope.active = '';
     $location.path('/');
   });
 };
