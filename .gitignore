@@ -27,3 +27,11 @@ docs/
 # Builds
 temp/
 dist/
+
+# Yeoman
+.bowerrc
+.editorconfig
+.gitattributes
+.jshintrc
+.tmp/
+

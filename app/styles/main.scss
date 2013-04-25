@@ -20,7 +20,7 @@ body {
 
 .dashboard input,
 .dashboard textarea {
-  @include placeholder(#ccc);
+  @include ctb-placeholder(#ccc);
 }
 
 .dashboard a:hover {
@@ -102,7 +102,7 @@ body {
     width: 400px;
     font-size: 26px;
     line-height: 32px;
-    @include border-radius(30px);
+    @include ctb-border-radius(30px);
   }
 
 

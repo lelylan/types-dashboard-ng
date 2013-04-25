@@ -10,7 +10,7 @@ function CreateCtrl(Type, AccessToken, $scope, $routeParams, $rootScope, $locati
   $scope.create = function() {
     $scope.type.$save(function() {
       $rootScope.active = 'yours'
-      $location.url('/types/' + $scope.type.id);
+      $location.url('types/' + $scope.type.id);
     });
   };
 };

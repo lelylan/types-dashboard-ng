@@ -1,17 +1,17 @@
 'use strict';
 
-var app = angular.module('lelylan.dashboards.types', ['ui.bootstrap', 'lelylan.components.type']);
+angular.module('lelylan.dashboards.types', ['ui.bootstrap', 'lelylan.components.type']);
 
-app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-    when('/', { templateUrl: '/partials/home.html', controller: DashboardCtrl }).
-    when('/what', { templateUrl: '/partials/what.html', controller: DashboardCtrl }).
-    when('/how', { templateUrl: '/partials/how.html', controller: DashboardCtrl }).
-    when('/popular', { templateUrl: '/partials/types.html', controller: PopularCtrl }).
-    when('/types', { templateUrl: '/partials/types.html', controller: YoursCtrl }).
-    when('/categories/:category', { templateUrl: '/partials/types.html',  controller: CategoryCtrl }).
-    when('/new', { templateUrl: '/partials/new-type.html', controller: CreateCtrl }).
-    when('/types/:typeId', { templateUrl: '/partials/type.html',  controller: TypeCtrl }).
-    otherwise({redirectTo: '/'});
+angular.module('lelylan.dashboards.types')
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', { templateUrl: 'views/home.html', controller: 'DashboardCtrl' })
+    .when('/new', { templateUrl: 'views/new-type.html', controller: 'CreateCtrl' })
+    .when('/types', { templateUrl: 'views/types.html', controller: 'YoursCtrl' })
+    .when('/popular', { templateUrl: 'views/types.html', controller: 'PopularCtrl' })
+    .when('/categories/:category', { templateUrl: 'views/types.html',  controller: 'CategoryCtrl' })
+    .when('/types/:typeId', { templateUrl: 'views/type.html',  controller: 'TypeCtrl' })
+    .when('/learn', { templateUrl: 'views/learn.html', controller: 'DashboardCtrl' })
+    .when('/how', { templateUrl: 'views/how.html', controller: 'DashboardCtrl' })
+    .otherwise({redirectTo: '/'});
 }]);
-
