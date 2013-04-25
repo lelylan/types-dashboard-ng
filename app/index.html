@@ -9,7 +9,7 @@
     <title>Lelylan Types</title>
     <meta name="description" content="Lelylan Types">
     <meta name="viewport" content="width=device-width">
-    <base href="/my-base">
+    <base href="/">
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -23,7 +23,6 @@
       <script src="components/es5-shim/es5-shim.js"></script>
       <script src="components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
 
     <div class="dashboard" ng-controller="DashboardCtrl">
       <div class="navbar navbar-fixed-top">
@@ -61,15 +60,15 @@
                 <li class="nav-header">Categories</li>
                 <li ng-class="{active: active=='lights'}"><a class="lights" href="categories/lights"><i class="icon-tag"></i> lights</a></li>
                 <li ng-class="{active: active=='locks'}"><a class="locks"  href="categories/locks"><i class="icon-tag"></i> locks</a></li>
-                <li ng-class="{active: active=='thermostats'}"><a class="thermostats"  href="categories/thermostats"><i class="icon-tag"></i> thermostats</a></li>
-                <li ng-class="{active: active=='alarms'}"><a class="alarms"  href="categories/alarms"><i class="icon-tag"></i> alarms</a></li>
-                <li ng-class="{active: active=='meters'}"><a class="meters"  href="categories/meters"><i class="icon-tag"></i> meters</a></li>
-                <li ng-class="{active: active=='cameras'}"><a class="cameras"  href="categories/cameras"><i class="icon-tag"></i> ip cameras</a></li>
-                <li ng-class="{active: active=='windows'}"><a class="windows"  href="categories/windows"><i class="icon-tag"></i> windows</a></li>
-                <li ng-class="{active: active=='appliances'}"><a class="appliances"  href="categories/appliances"><i class="icon-tag"></i> appliances</a></li>
-                <li ng-class="{active: active=='gardenings'}"><a class="gardenings"  href="categories/gardenings"><i class="icon-tag"></i> gardenings</a></li>
-                <li ng-class="{active: active=='sensors'}"><a class="sensors"  href="categories/sensors"><i class="icon-tag"></i> sensors</a></li>
-                <li ng-class="{active: active=='others'}"><a class="others"  href="categories/others"><i class="icon-tag"></i> others</a></li>
+                <li ng-class="{active: active=='thermostats'}"><a class="thermostats" href="categories/thermostats"><i class="icon-tag"></i> thermostats</a></li>
+                <li ng-class="{active: active=='alarms'}"><a class="alarms" href="categories/alarms"><i class="icon-tag"></i> alarms</a></li>
+                <li ng-class="{active: active=='meters'}"><a class="meters" href="categories/meters"><i class="icon-tag"></i> meters</a></li>
+                <li ng-class="{active: active=='cameras'}"><a class="cameras" href="categories/cameras"><i class="icon-tag"></i> ip cameras</a></li>
+                <li ng-class="{active: active=='windows'}"><a class="windows" href="categories/windows"><i class="icon-tag"></i> windows</a></li>
+                <li ng-class="{active: active=='appliances'}"><a class="appliances" href="categories/appliances"><i class="icon-tag"></i> appliances</a></li>
+                <li ng-class="{active: active=='gardenings'}"><a class="gardenings" href="categories/gardenings"><i class="icon-tag"></i> gardenings</a></li>
+                <li ng-class="{active: active=='sensors'}"><a class="sensors" href="categories/sensors"><i class="icon-tag"></i> sensors</a></li>
+                <li ng-class="{active: active=='others'}"><a class="others" href="categories/others"><i class="icon-tag"></i> others</a></li>
               </ul>
             </div>
           </div>
@@ -109,18 +108,10 @@
     <!-- endbuild -->
 
     <script>
-      var app = angular.module('app', ['lelylan.dashboards.types']);
-      app.value('lelylan.config', { endpoint: 'http:///localhost\\:5000' });
-
-      app.run(['$httpBackend', function($httpBackend) {
-        $httpBackend.whenGET(/.*/).passThrough();
-        $httpBackend.whenPOST(/.*/).passThrough();
-        $httpBackend.whenPUT(/.*/).passThrough();
-        $httpBackend.whenDELETE(/.*/).passThrough();
-      }]);
+      angular.module('app', ['lelylan.dashboards.types'])
+        .value('lelylan.config', { endpoint: 'http:///localhost\\:5000' })
     </script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
