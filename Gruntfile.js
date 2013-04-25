@@ -312,5 +312,9 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
+  grunt.registerTask('heroku', [
+    'build'
+  ]);
+
   grunt.registerTask('default', ['build']);
 };
