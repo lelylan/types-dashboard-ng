@@ -26,17 +26,17 @@ directives.directive('device', ['Device', 'Type', 'LoggedUser', '$rootScope', '$
           // Options
           '<div class="dc-options" ng-show="options">' +
             '<ul class="nav nav-pills">' +
-              '<li><a href="#" class="action-refresh" ng-click="refresh()"><i class="icon-repeat"></i> Refresh</a></li>' +
-              '<li><a href="#" class="action-extend" ng-show="!extended" ng-click="extend()"><i class="icon-chevron-down"></i> Extended</a></li>' +
-              '<li><a href="#" class="action-compact" ng-show="extended" ng-click="compact()"><i class="icon-chevron-up"></i> Compact</a></li>' +
-              '<li><a href="#" class="action-main" ng-show="action.settings" ng-click="showMain()"><i class="icon-chevron-left"></i> Back</a></li>' +
-              '<li><a href="#" class="action-settings" ng-show="action.main" ng-click="showSettings()"><i class="icon-pencil"></i> Settings</a></li>' +
+              '<li><a href="javascript:" class="action-refresh" ng-click="refresh()"><i class="icon-repeat"></i> Refresh</a></li>' +
+              '<li><a href="javascript:" class="action-extend" ng-show="!extended" ng-click="extend()"><i class="icon-chevron-down"></i> Extended</a></li>' +
+              '<li><a href="javascript:" class="action-compact" ng-show="extended" ng-click="compact()"><i class="icon-chevron-up"></i> Compact</a></li>' +
+              '<li><a href="javascript:" class="action-main" ng-show="action.settings" ng-click="showMain()"><i class="icon-chevron-left"></i> Back</a></li>' +
+              '<li><a href="javascript:" class="action-settings" ng-show="action.main" ng-click="showSettings()"><i class="icon-pencil"></i> Settings</a></li>' +
             '</ul>' +
           '</div>' +
           // Default status
           '<div class="dc-function function-{{status.function.id}} row-fluid">' +
             '<div class="action">' +
-              '<a href="#" ng-click="execute(status.function)" class="execute" title="{{status.function.name}}"></a>' +
+              '<a href="javascript:" ng-click="execute(status.function)" class="execute" title="{{status.function.name}}"></a>' +
               '<div ng-show="device.pending" id="pending-{{$id}}-{{device.id}}" class="pending"></div>' +
             '</div>' +
             '<div class="dc-description" ng-show="!list">' +
@@ -46,8 +46,8 @@ directives.directive('device', ['Device', 'Type', 'LoggedUser', '$rootScope', '$
             '<div class="dc-list-description" ng-show="list" ng-click="fireOpen()" ng-mouseover="entry=true" ng-mouseleave="entry=false">' +
               '<p class="lead color dc-name">{{device.name}}</p>' +
               '<p class="lead dc-status-name"><em>{{status.name}}</em></p>' +
-              '<a ng-show="!entry" class="dc-open" href="#"><img class="dc-details" src="/images/chevron-right.png"></a>' +
-              '<a ng-show="entry" class="dc-open" href="#"><img class="dc-details" src="/images/chevron-right-hover.png"></a>' +
+              '<a ng-show="!entry" class="dc-open" href="javascript:"><img class="dc-details" src="/images/chevron-right.png"></a>' +
+              '<a ng-show="entry" class="dc-open" href="javascript:"><img class="dc-details" src="/images/chevron-right-hover.png"></a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -59,10 +59,10 @@ directives.directive('device', ['Device', 'Type', 'LoggedUser', '$rootScope', '$
             '<div class="dc-function function-{{function.id}}" ng-repeat="function in functions">' +
               '<div class="row-fluid">' +
                 '<div class="action">' +
-                  '<a href="#" ng-click="execute(function)" title="Execute {{function.name}}" class="execute"></a>' +
+                  '<a href="javascript:" ng-click="execute(function)" title="Execute {{function.name}}" class="execute"></a>' +
                 '</div>' +
                 '<div class="dc-description">' +
-                  '<p class="name lead"><a href="#" ng-click="execute(function)">{{function.name}}</a></p>' +
+                  '<p class="name lead"><a href="javascript:" ng-click="execute(function)">{{function.name}}</a></p>' +
                 '</div>' +
               '</div>' +
             '</div>' +
@@ -260,10 +260,7 @@ directives.directive('device', ['Device', 'Type', 'LoggedUser', '$rootScope', '$
     // Reload the device
     scope.refresh = function() {
       scope.device.pending = true;
-      var refreshing = Device.get({ id: scope.device.id }, function() {
-        scope.device = refreshing;
-        initResources();
-      })
+      scope.refreshing = Device.get({ id: scope.device.id }, initResources);
     };
 
     // Update the device
