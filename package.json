@@ -27,8 +27,7 @@
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.1",
     "grunt-google-cdn": "~0.1.1",
-    "grunt-ngmin": "~0.0.2",
-    "grunt-cli": "~0.1.7"
+    "grunt-ngmin": "~0.0.2"
   },
   "engines": {
     "node": ">=0.8.0"
