@@ -8,6 +8,6 @@ function YoursCtrl(Type, AccessToken, $scope, $rootScope) {
   $scope.types = Type.query({ per: 250 }, function(){
     $scope.loading = false;
   });
-};
+}
 
 YoursCtrl.$inject = ['Type', 'AccessToken', '$scope', '$rootScope'];

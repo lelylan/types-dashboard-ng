@@ -13,7 +13,7 @@ function DashboardCtrl($scope, $rootScope, $http, $location) {
     $rootScope.active = '';
     $location.path('/');
   });
-};
+}
 
 DashboardCtrl.$inject = ['$scope', '$rootScope', '$http', '$location'];
 
