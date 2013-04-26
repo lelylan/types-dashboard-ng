@@ -1,7 +1,5 @@
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
-
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -47,19 +45,9 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: process.env.PORT || 9000,
+        port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
-        middleware: function (connect) {
-          return [
-            rewriteRulesSnippet
-          ];
-        }
-      },
-      rules: {
-        '^/test.html$': '/app/index.html',
-        '^/js/(.*)$': '/src/js/$1',
-        '^/css/(.*)$': '/public/css/$1'
+        hostname: 'localhost'
       },
       livereload: {
         options: {
@@ -278,7 +266,6 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee:dist',
     'compass:server',
-    'configureRewriteRules',
     'livereload-start',
     'connect:livereload',
     'open',
@@ -310,10 +297,6 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin'
-  ]);
-
-  grunt.registerTask('heroku', [
-    'server'
   ]);
 
   grunt.registerTask('default', ['build']);
