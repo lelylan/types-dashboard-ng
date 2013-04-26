@@ -4,7 +4,7 @@
   "author": {
     "name": "Andrea Reginato"
   },
-  "dependencies": {
+  "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-concat": "~0.1.3",
@@ -28,7 +28,7 @@
     "grunt-google-cdn": "~0.1.1",
     "grunt-ngmin": "~0.0.2"
   },
-  "devDependencies": {},
+  "dependencies": {},
   "engines": {
     "node": ">=0.8.0"
   }
