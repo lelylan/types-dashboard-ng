@@ -1,2 +1,2 @@
-web: ./node_modules/grunt-cli/bin/grunt server
+web: grunt server
 
