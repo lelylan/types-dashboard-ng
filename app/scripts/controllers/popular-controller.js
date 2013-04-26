@@ -9,8 +9,8 @@ function PopularCtrl($scope, $rootScope) {
 
 PopularCtrl.$inject = ['$scope', '$rootScope'];
 
-var popularTypesList = function() {
-  return [{
+var popularTypesList =
+  [{
     uri: 'http://api.lelylan.com/types/1',
     id: '1',
     name: 'Basic Light',
@@ -27,4 +27,3 @@ var popularTypesList = function() {
     created_at: '2012-09-01T15:01:22Z',
     updated_at: '2012-09-01T15:01:22Z',
   }];
-}
