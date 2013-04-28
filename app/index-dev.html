@@ -10,7 +10,7 @@
     <title>Lelylan Types</title>
     <meta name="description" content="Lelylan Types">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="styles/19bea638.main.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-app="app" class="ng-cloak">
     <!--[if lt IE 7]>
@@ -27,7 +27,9 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav" redirect="http://localhost:3100/index-dev.html" client="83e5c21164393506718c5830b06b8836b6936a478cc7e045720630d421ef69f7" scope="types">
+              <login class="nav" redirect="http://localhost:3100/index-dev.html"
+              client="83e5c21164393506718c5830b06b8836b6936a478cc7e045720630d421ef69f7"
+              scope="types">
               </login>
               <ul class="nav pull-right nav-context">
                 <li><a href="learn">What is Lelylan Types</a></li>
@@ -54,7 +56,7 @@
                 <li ng-class="{active: active=='yours'}"><a class="yours" href="types"><i class="icon-user"></i> Yours</a></li>
                 <li class="nav-header">Categories</li>
                 <li ng-class="{active: active=='lights'}"><a class="lights" href="categories/lights"><i class="icon-tag"></i> lights</a></li>
-                <li ng-class="{active: active=='locks'}"><a class="locks" href="categories/locks"><i class="icon-tag"></i> locks</a></li>
+                <li ng-class="{active: active=='locks'}"><a class="locks"  href="categories/locks"><i class="icon-tag"></i> locks</a></li>
                 <li ng-class="{active: active=='thermostats'}"><a class="thermostats" href="categories/thermostats"><i class="icon-tag"></i> thermostats</a></li>
                 <li ng-class="{active: active=='alarms'}"><a class="alarms" href="categories/alarms"><i class="icon-tag"></i> alarms</a></li>
                 <li ng-class="{active: active=='meters'}"><a class="meters" href="categories/meters"><i class="icon-tag"></i> meters</a></li>
@@ -73,7 +75,7 @@
               <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
             </div>
             <div class="dashboard-content">
-              <div ng-view=""></div>
+              <div ng-view></div>
               <div class="clearfix"></div>
             </div>
           </div>
@@ -91,8 +93,17 @@
     <script src="components/unstable-angular-complete/angular-resource.js"></script>
     <script src="components/unstable-angular-complete/angular-cookies.js"></script>
 
+    <!-- build:js scripts/scripts.js -->
+    <script src="components/type-component-ng/type-component-ng.js"></script>
 
-    <script src="scripts/33a4b4f3.scripts.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/category-controller.js"></script>
+    <script src="scripts/controllers/create-controller.js"></script>
+    <script src="scripts/controllers/dashboard-controller.js"></script>
+    <script src="scripts/controllers/popular-controller.js"></script>
+    <script src="scripts/controllers/yours-controller.js"></script>
+    <script src="scripts/controllers/type-controller.js"></script>
+    <!-- endbuild -->
 
     <script>
       angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])

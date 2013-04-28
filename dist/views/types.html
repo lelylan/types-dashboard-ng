@@ -3,7 +3,7 @@
     <input class="search-query" type="text" ng-model="query" placeholder="Seach types (e.g light, lock)">
   </div>
 
-  <hr>
+  <hr/>
 
   <div class="types" ng-show="!loading && authorized && types.length!=0">
     <div class="type type-{{type.id}}" ng-repeat="type in types | filter:query">
@@ -17,7 +17,7 @@
           </ul>
         </div>
       </div>
-      <hr>
+      <hr/>
     </div>
   </div>
 

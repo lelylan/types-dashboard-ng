@@ -31,5 +31,5 @@ docs/
 .jshintrc
 .tmp/
 
-# Dev
-app/index-dev.html
+# Development
+app/index-dev-local.html

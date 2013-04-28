@@ -27,7 +27,7 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav" redirect="http://localhost:3100/index-dev.html" client="83e5c21164393506718c5830b06b8836b6936a478cc7e045720630d421ef69f7" scope="types">
+              <login class="nav" redirect="http://localhost:3100/index-dev-local.html" client="ee99a5972908d3b1d8202f97708d54077564cc5fe217e86c68070906db776a9e" scope="types" site="http://localhost:3000">
               </login>
               <ul class="nav pull-right nav-context">
                 <li><a href="learn">What is Lelylan Types</a></li>
@@ -96,6 +96,7 @@
 
     <script>
       angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])
+        .value('lelylan.config', { endpoint: 'http:///localhost\\:8000' })
     </script>
 
     <script>
