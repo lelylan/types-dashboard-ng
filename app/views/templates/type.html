@@ -81,7 +81,8 @@
                   <thead>
                     <tr>
                       <td class="tc-description-name">Property ID</td>
-                      <td><code>{{property.id}}</code></td>
+                      <td ng-show="property.id == config.saving.message"><strong>{{config.saving.message}}</strong></td>
+                      <td ng-show="property.id != config.saving.message"><code>{{property.id}}</code></td>
                     </tr>
                     <tr>
                       <td class="tc-description-name">Type values</td>
@@ -196,13 +197,13 @@
                     <thead>
                       <tr>
                         <th class="muted">Key</th>
-                        <th>Value</th>
+                        <th>Label</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="suggestion in property.acceptedList | filter:search">
-                        <td class="muted">{{suggestion.key}}</td>
-                        <td>{{suggestion.value}}</td>
+                      <tr ng-repeat="item in property.acceptedList | filter:search">
+                        <td class="muted">{{item.key}}</td>
+                        <td>{{item.value}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -249,7 +250,8 @@
                   <thead>
                     <tr>
                       <td class="tc-description-name">Function ID</td>
-                      <td><code>{{function.id}}</code></td>
+                      <td ng-show="function.id == config.saving.message"><strong>{{config.saving.message}}</strong></td>
+                      <td ng-show="function.id != config.saving.message"><code>{{function.id}}</code></td>
                     </tr>
                     <tr>
                       <td class="tc-description-name" row-span="{{function.properties.length}}">Properties update</td>
@@ -359,7 +361,8 @@
                   <thead>
                     <tr class="tc-status-id">
                       <td class="tc-description-name">Status ID</td>
-                      <td><code>{{status.id}}</code></td>
+                      <td ng-show="status.id == config.saving.message"><strong>{{config.saving.message}}</strong></td>
+                      <td ng-show="status.id != config.saving.message"><code>{{status.id}}</code></td>
                     </tr>
                     <tr class="tc-status-id">
                       <td class="tc-description-name">Default Function</td>
@@ -475,7 +478,7 @@
 
         <div class="tc-header">
           <p class="tc-lead">Delete Type</p>
-          <p class="tc-description">Deleting your type is irreversible. Enter your device name  to confirm you want to permanently delete it.</p>
+          <p class="tc-description">Deleting a type is irreversible. Enter your device name  to confirm you want to permanently delete it.</p>
         </div>
 
         <div class="tc-content">
