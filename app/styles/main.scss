@@ -68,6 +68,19 @@ body {
     margin-bottom: 0 !important;
   }
 
+  .notifications .alert {
+    margin: 10px 0;
+    font-weight: 200;
+    font-size: 16px;
+  }
+
+  .notifications .alert .close {
+    position: relative;
+    top: -13px;
+    right: -30px;
+  }
+
+
   /* Side */
 
   .nav-list {

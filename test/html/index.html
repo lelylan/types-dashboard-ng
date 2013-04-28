@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-app="test">
+  <body ng-app="test" class="ng-cloak">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -71,6 +71,9 @@
           </div>
 
           <div class="span9">
+            <div class="notifications">
+              <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            </div>
             <div class="dashboard-content">
               <div ng-view></div>
               <div class="clearfix"></div>

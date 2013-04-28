@@ -1,7 +1,9 @@
 'use strict';
 
-function DashboardCtrl($scope, $rootScope, $http, $location) {
+function DashboardCtrl($scope, $rootScope, $http, $location, $timeout) {
   $rootScope.active = '';
+  $scope.alerts = [];
+
   $scope.oauth = {
     redirect: 'http://t.lelylan.com',
     client:   '49e0f0319b3c773b083c8e3da3b946a10ddf5485d2e3ceadf91428dfb3f05471',
@@ -16,10 +18,16 @@ function DashboardCtrl($scope, $rootScope, $http, $location) {
   $scope.$on('lelylan:type:delete', function(event, type) {
     $rootScope.active = 'yours';
     $location.path('types');
+    $scope.alerts.push({ type: 'success', msg: type.name + ' successfully deleted' })
+    $timeout(function() { $scope.closeAlert($scope.alerts.length - 1) }, 10000);
   });
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 }
 
-DashboardCtrl.$inject = ['$scope', '$rootScope', '$http', '$location'];
+DashboardCtrl.$inject = ['$scope', '$rootScope', '$http', '$location', '$timeout'];
 
 var cl = new CanvasLoader('lelylan-request-loading');
 cl.setColor('#239cbb');
