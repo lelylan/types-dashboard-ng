@@ -29,6 +29,12 @@ Do not forget to provide specs to your contribution.
 * Run `yeoman server`.
 * Run `testacular start` to execute all tests.
 
+### Stubbing
+
+In `test/html` there are the apps simulating the needed HTTP request.
+
+* [Types Dashboard](http://localhost:3100/html/index.html)
+* [Authenticated Types Dashboard](http://localhost:3100/html/index.html#access_token=token&token_type=bearer&expires_in=7200&state=state5c6007a2/mocks/index.html)
 
 ### Coding guidelines
 
