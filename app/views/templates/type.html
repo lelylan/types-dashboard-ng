@@ -89,8 +89,8 @@
                     </tr>
                     <tr>
                       <td class="tc-description-name">Accepted values</td>
-                      <td ng-show="property.type!='range' && property.suggested">See <a href="javascript:" ng-click="open(property, 'list')">list of values</a></td>
-                      <td ng-show="property.type!='range' && !property.suggested">Any {{property.type}} value</td>
+                      <td ng-show="property.type!='range' && property.accepted">See <a href="javascript:" ng-click="open(property, 'list')">list of values</a></td>
+                      <td ng-show="property.type!='range' && !property.accepted">Any {{property.type}} value</td>
                       <td ng-show="property.type=='range'">Values between <code>{{property.range.min}}</code> and <code>{{property.range.max}}</code> with an interval of <code>{{property.range.step}}</code></td>
                     </tr>
                     <tr>
@@ -134,12 +134,12 @@
                         <input class="input-xlarge" type="text" name="default" ng-model="property.default" placeholder="{{property.placeholders.default}}"><br/>
                       </div>
                     </div>
-                    <div class="tc-property-suggested control-group" ng-class="{error: form.suggested.$invalid}" ng-show="property.type != 'range'">
+                    <div class="tc-property-accepted control-group" ng-class="{error: form.accepted.$invalid}" ng-show="property.type != 'range'">
                       <div class="input-prepend">
-                        <span class="add-on">Suggested</span>
-                        <input class="input-xlarge" type="text" name="default" ng-model="property.suggestedString" placeholder="{{property.placeholders.suggested}}"><br/>
+                        <span class="add-on">Accepted</span>
+                        <input class="input-xlarge" type="text" name="default" ng-model="property.acceptedString" placeholder="{{property.placeholders.accepted}}"><br/>
                       </div>
-                      <small class="help-inline muted">Suggested property must be a valid JSON object</small>
+                      <small class="help-inline muted">Accepted property must be a valid JSON object</small>
                     </div>
                     <div class="tc-property-range control-group" ng-class="{error: form.min.$invalid || form.max.$invalid || form.step.$invalid}" ng-show="property.type == 'range'">
                       <div class="input-prepend">
@@ -182,11 +182,11 @@
               </div>
             </div>
 
-            <!-- Property suggested values -->
+            <!-- Property accepted values -->
 
             <!-- property.list to property.show.list (every form should follow this rule) -->
             <div modal="property.list" close="close(property, 'list')">
-              <div class="tc-property-suggested">
+              <div class="tc-property-accepted">
                 <div class="modal-header">
                   <button class="pull-right close" type="button" ng-click="close(property, 'list')">&times;</button>
                   <input type="text" ng-model="search" class="search-query" placeholder="Search">
@@ -200,7 +200,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="suggestion in property.suggestedList | filter:search">
+                      <tr ng-repeat="suggestion in property.acceptedList | filter:search">
                         <td class="muted">{{suggestion.key}}</td>
                         <td>{{suggestion.value}}</td>
                       </tr>

@@ -45,7 +45,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
+        port: 3100,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost'
       },
@@ -299,6 +299,4 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', ['build']);
-
-  grunt.registerTask('heroku', ['server']);
 };

@@ -91,9 +91,7 @@
     <script src="components/unstable-angular-complete/angular-cookies.js"></script>
 
     <!-- build:js scripts/scripts.js -->
-    <script src="scripts/vendor/lelylan/lelylan.js"></script>
-    <script src="scripts/vendor/lelylan/device-component.js"></script>
-    <script src="scripts/vendor/lelylan/type-component.js"></script>
+    <script src="components/type-component-ng/type-component-ng.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/category-controller.js"></script>
@@ -105,7 +103,7 @@
     <!-- endbuild -->
 
     <script>
-      angular.module('app', ['lelylan.dashboards.types'])
+      angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])
     </script>
 
     <script>
