@@ -9,13 +9,17 @@ module.exports = function (grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // configurable paths
+  // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    test: 'test'
   };
 
   try {
-    yeomanConfig.app = require('./component.json').appPath || yeomanConfig.app;
+    var component = require('./component.json')
+    yeomanConfig.name    = component.name    || 'no-name';
+    yeomanConfig.version = component.version || '0.0.0.undefined';
   } catch (e) {}
 
   grunt.initConfig({
@@ -55,7 +59,8 @@ module.exports = function (grunt) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app)
+              mountFolder(connect, yeomanConfig.app),
+              mountFolder(connect, yeomanConfig.test)
             ];
           }
         }
@@ -65,7 +70,17 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test')
+              mountFolder(connect, yeomanConfig.app),
+              mountFolder(connect, yeomanConfig.test)
+            ];
+          }
+        }
+      },
+      server: {
+        options: {
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, yeomanConfig.dist)
             ];
           }
         }

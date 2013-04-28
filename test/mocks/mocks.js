@@ -4,7 +4,7 @@ var test = angular.module('test', ['lelylan.dashboards.types', 'ngMockE2E']);
 
 test.run(function($httpBackend, LoggedUser, Simulation) {
 
-  LoggedUser.set()
+  LoggedUser.set({ id: 1, full_name: 'Alice' })
 
   /* Dashboard */
 
@@ -53,11 +53,6 @@ test.run(function($httpBackend, LoggedUser, Simulation) {
   $httpBackend.whenDELETE(/http:\/\/api.lelylan.com\/statuses/)
     .respond(function(method, url, data, headers){ return [200, deleteConnection(data), {}]; });
 
-  // Device related
-  $httpBackend.whenPUT(/http:\/\/api.lelylan.com\/devices\/1\/properties/)
-    .respond(function(method, url, data, headers){ return [200, updateDevice(data), {}]; });
-
-
   // Dynamic simulation of connection creation
   var createConnection = function(data) {
     data = angular.fromJson(data);
@@ -97,24 +92,14 @@ test.run(function($httpBackend, LoggedUser, Simulation) {
   }
 
 
-  /* Simulated Device */
+  /* Device simulation */
 
-  $httpBackend.whenPUT(/http:\/\/api.lelylan.com\/devices\/1\/properties/)
-    .respond(function(method, url, data, headers){ return [200, updateDevice(data), {}]; });
+  $httpBackend.whenPUT('http://api.lelylan.com/devices/1/properties')
+  .respond(function(method, url, data, headers){ return [200, Simulation.update(data), {}]; });
 
-  var updateDevice = function(data) {
-    data = angular.fromJson(data);
-    var resource = Simulation.get();
-    _.each(data.properties, function(property) {
-      var result = _.find(resource.properties, function(_property){ return _property.id == property.id; });
-      result.expected = result.value = property.value;
-    });
-    return resource;
-  }
 
   /* Pass through */
 
-  $httpBackend.whenGET(/partials/).passThrough();
-  $httpBackend.whenGET(/templates/).passThrough();
+  $httpBackend.whenGET(/views/).passThrough();
   $httpBackend.when('GET', /types.lelylan.com/).passThrough(); // to test the spinner visualization
 });
