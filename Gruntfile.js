@@ -75,15 +75,6 @@ module.exports = function (grunt) {
             ];
           }
         }
-      },
-      server: {
-        options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, yeomanConfig.dist)
-            ];
-          }
-        }
       }
     },
     open: {

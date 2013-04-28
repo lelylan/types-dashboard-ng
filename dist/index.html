@@ -10,9 +10,9 @@
     <title>Lelylan Types</title>
     <meta name="description" content="Lelylan Types">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="styles/519d975c.main.css">
+    <link rel="stylesheet" href="styles/066d1bc1.main.css">
   </head>
-  <body ng-app="app">
+  <body ng-app="app" class="ng-cloak">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -27,10 +27,9 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav" redirect="http://t.lelylan.com" client="49e0f0319b3c773b083c8e3da3b946a10ddf5485d2e3ceadf91428dfb3f05471" scope="types">
-              </login>
+              <login class="nav" redirect="{{oauth.redirect}}" client="{{oauth.client}}" scope="{{oauth.scope}}"></login>
               <ul class="nav pull-right nav-context">
-                <li><a href="learn">Learn more</a></li>
+                <li><a href="learn">What is Lelylan Types</a></li>
                 <li><a href="how">How to create a type</a></li>
               </ul>
             </div>
@@ -69,6 +68,9 @@
           </div>
 
           <div class="span9">
+            <div class="notifications">
+              <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            </div>
             <div class="dashboard-content">
               <div ng-view=""></div>
               <div class="clearfix"></div>
@@ -89,10 +91,10 @@
     <script src="components/unstable-angular-complete/angular-cookies.js"></script>
 
 
-    <script src="scripts/9f848c67.scripts.js"></script>
+    <script src="scripts/33a4b4f3.scripts.js"></script>
 
     <script>
-      angular.module('app', ['lelylan.dashboards.types'])
+      angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])
     </script>
 
     <script>
