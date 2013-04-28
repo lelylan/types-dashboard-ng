@@ -8,6 +8,12 @@
       <div class="tc-name">
         <p class="lead tc-editable" ng-show="config.inplace.name && (user.id == type.owner.id)" ng-click="config.inplace.name=false">{{type.name}}</p>
         <p class="lead tc-not-editable" ng-show="config.inplace.name && (user.id != type.owner.id)">{{type.name}}</p>
+        <div class="tc-twitter pull-right">
+          <iframe allowtransparency="true" frameborder="0" scrolling="no"
+            src="https://platform.twitter.com/widgets/tweet_button.html?text=Building the connected home using the {{type.name | lowercase}}&hashtags=lelylan&url=http://t.lelylan.com/types/{{typeId}}&counturl=http://t.lelylan.com&related=lelylan:Building The Connected Home&count=vertical"
+            style="width:57px; height:62px;"></iframe>
+        </div>
+
         <form class="tc-inplace tc-name-form" name="nameForm" ng-show="!config.inplace.name">
           <input type="text" name="name" ng-model="type.name" required>
           <button class="update btn btn-lelylan" ng-click="updateName()" ng-disabled="nameForm.$invalid || nameForm.$pristine">Update</button>
@@ -469,6 +475,7 @@
 
       <div class="tc-more tc-simulation" ng-show="show.simulation">
         <device device-type="simulatedType" device-options="false" device-json="simulatedDevice" style="width:300px;"></device>
+        <div class="clearfix"></div>
       </div>
 
       <!-- Type Delete -->

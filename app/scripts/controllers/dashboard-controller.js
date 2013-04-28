@@ -3,15 +3,19 @@
 function DashboardCtrl($scope, $rootScope, $http, $location) {
   $rootScope.active = '';
   $scope.oauth = {
-    redirect: 'http://localhost:3501/',
-    client:   '81e265dbf00569f9ba39dcc0dc0043020cdb4d2030ad77233be7c27aa447977e',
-    scope:    'types',
-    state:    ''
+    redirect: 'http://t.lelylan.com',
+    client:   '49e0f0319b3c773b083c8e3da3b946a10ddf5485d2e3ceadf91428dfb3f05471',
+    scope:    'types'
   };
 
   $scope.$on('lelylan:logout', function(event) {
     $rootScope.active = '';
     $location.path('/');
+  });
+
+  $scope.$on('lelylan:type:delete', function(event, type) {
+    $rootScope.active = 'yours';
+    $location.path('types');
   });
 }
 

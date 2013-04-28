@@ -239,6 +239,7 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
 
     scope.destroy = function() {
       scope.type.$delete(function() {
+        fireDelete();
         scope.destroyed = true;
       })
     }
@@ -302,6 +303,13 @@ directives.directive('lelylanType', ['Type', 'Property', 'Function', 'Status',  
         scope.modal.visible = false;
       }
     }
+
+
+    /* ------ */
+    /* Events */
+    /* ------ */
+
+    var fireDelete = function() { $rootScope.$broadcast('lelylan:type:delete', scope.type); };
 
 
     /* -------------- */
