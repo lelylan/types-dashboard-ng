@@ -50,7 +50,12 @@ The new distribution files will be created in 'dist/'.
 
 ### Stubbing
 
-In `test/html` all HTTP request are simulated to make the app work in isolation.
+In `test/html` you can find the stubbed versions of Lelylan Types where all HTTP request are
+simulated to be able to work in isolation.
+
+* Run `grunt server`
+
+And then open the following pages to live test Lelylan Types.
 
 * [Types Dashboard](http://localhost:3100/html/index.html)
 * [Authenticated Types Dashboard](http://localhost:3100/html/index.html#access_token=token&token_type=bearer&expires_in=7200&state=state5c6007a2/mocks/index.html)
