@@ -5,8 +5,8 @@ function DashboardCtrl($scope, $rootScope, $http, $location, $timeout) {
   $scope.alerts = [];
 
   $scope.oauth = {
-    redirect: 'http://t.lelylan.com',
     client:   '49e0f0319b3c773b083c8e3da3b946a10ddf5485d2e3ceadf91428dfb3f05471',
+    redirect: 'http://t.lelylan.com',
     scope:    'types'
   };
 

@@ -27,7 +27,10 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav" redirect="{{oauth.redirect}}" client="{{oauth.client}}" scope="{{oauth.scope}}"></login>
+              <login class="nav pull-right"
+                redirect="{{oauth.redirect}}"
+                client="{{oauth.client}}"
+                scope="{{oauth.scope}}"></login>
               <ul class="nav pull-right nav-context">
                 <li><a href="learn">What is Lelylan Types</a></li>
                 <li><a href="how">How to create a type</a></li>
@@ -80,7 +83,7 @@
 
         <!-- Footer  -->
         <footer class="pull-right">
-          <p>&copy; Lelylan 2013</p>
+        <p>Created by <a href="http://lelylan.com">Lelylan</a> 2013</p>
         </footer>
       </div>
     </div>
@@ -104,6 +107,9 @@
 
     <script>
       angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])
+        .config(['$locationProvider', function($locationProvider) {
+          $locationProvider.html5Mode(true).hashPrefix('!');
+        }]);
     </script>
 
     <script>

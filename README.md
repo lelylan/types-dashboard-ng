@@ -2,7 +2,7 @@
 
 Source code for [Lelylan Types Dashboard](http://t.lelylan.com).
 
-![Lelylan Components](http://i.imgur.com/JXdOqSF.png)
+![Lelylan Types Dashboard](http://i.imgur.com/JXdOqSF.png)
 
 
 ## Introduction
@@ -17,6 +17,7 @@ in your house providing a simple and consistent REST API.
 A type describes the structure of a device. In its simplest form every type can be defined as
 the combination of three key elements: properties, functions and statuses.
 [Learn more about](http://dev.lelylan.com/api/types).
+
 ### Why AngularJS
 
 [AngularJS](http://angularjs.org/) lets you write client-side web applications as if you had
@@ -34,8 +35,7 @@ Do not forget to provide specs to your contribution.
 
 * Fork and clone the repository
 * Install [Yeoman](http://yeoman.io) and [PhantomJS](http://phantomjs.org/)
-* Run `grunt server`
-* Run `grunt test` to execute all tests
+* Run `grunt test`
 
 ### Creating your own distribution
 
