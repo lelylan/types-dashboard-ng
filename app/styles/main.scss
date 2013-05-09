@@ -2,18 +2,21 @@ $linkColor:       #239cbb !default;
 $linkColorHover:  #01cf9e !default;
 
 $lelylanColor:    #239cbb !default;
-$typeBorderColor: #ddd    !default;
-$lineColor:       #e8e8e8 !default;
+$lelylanLineColor:       #e8e8e8 !default;
+
+@import "device-component-ng.min";
+@import "type-component-ng.min";
 
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+
 @import "overlay";
 @import "circles";
 
 /* Dashboard (generic) */
 
 body {
-  background-color: $lineColor !important;
+  background-color: $lelylanLineColor !important;
 }
 
 .dashboard {
@@ -32,6 +35,10 @@ body {
 .dashboard footer {
   margin-top: 20px;
   padding-right: 2px;
+}
+
+.btn-lelylan {
+  @include ctb-buttonBackground($lelylanColor, $lelylanColor);
 }
 
 #lelylan-request-loading {
@@ -107,7 +114,7 @@ body {
 
   .dashboard-content {
     background-color: #fff;
-    border: 1px solid $lineColor;
+    border: 1px solid $lelylanLineColor;
     min-height: 760px;
     padding: 20px;
   }
@@ -172,7 +179,7 @@ body {
 
   .alert-block {
     background-color: #f8f8f8;
-    border-color: $lineColor;
+    border-color: $lelylanLineColor;
     color: #333;
   }
 
@@ -182,7 +189,7 @@ body {
   .social {
     margin: 25px 10px;
     padding: 30px 0;
-    border-top: 1px solid $typeBorderColor
+    border-top: 1px solid $lelylanLineColor
   }
 
   /* Create form type */
@@ -266,14 +273,17 @@ body {
     font-weight: 200;
   }
 
+  .presentation .description li,
   .presentation .description p {
-    font-size: 15px;
-    line-height: 24px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #555;
   }
 
-  .presentation .description li {
-    line-height: 24px;
+  .presentation .description ul,
+  .presentation .description p {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .presentation .description .btn {
@@ -303,27 +313,37 @@ body {
     text-align: center;
   }
 
+  .presentation .description p.lead {
+    font-size: 22px;
+    line-height: 34px;
+  }
+
   /* Presentation home page */
 
   .home {
     text-align: center;
   }
 
+  .home hr {
+    margin: 40px 0;
+  }
+
   .home h1.title {
     margin-top: 25px;
-    font-size: 82px;
+    font-size: 72px;
+    padding-left: 0;
   }
 
   .home h2.payoff {
-    padding: 20px 10px;
-    font-size: 36px;
+    padding: 0 10px 20px;
+    font-size: 32px;
     color: #333;
     font-weight: 200;
-    line-height: 46px;
+    line-height: 36px;
   }
 
   .home .description {
-    margin-top: 30px;
+    margin-top: 55px;
     padding: 0px 30px;
   }
 
@@ -334,8 +354,6 @@ body {
     line-height: 28px;
   }
 }
-
-@import "type-component-ng.min";
 
 /* Type component overriding */
 

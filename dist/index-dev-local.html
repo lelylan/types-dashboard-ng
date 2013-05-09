@@ -10,7 +10,9 @@
     <title>Lelylan Types</title>
     <meta name="description" content="Lelylan Types">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="styles/7d56d5af.main.css">
+    <link rel="stylesheet" href="/styles/device-component-ng.min.css">
+    <link rel="stylesheet" href="/styles/type-component-ng.min.css">
+    <link rel="stylesheet" href="/styles/74c0fe5c.main.css">
   </head>
   <body ng-app="app" class="ng-cloak">
     <!--[if lt IE 7]>
@@ -27,7 +29,7 @@
         <div class="navbar-inner-flat">
           <div class="container">
             <div class="nav-collapse collapse">
-              <login class="nav" client="ee99a5972908d3b1d8202f97708d54077564cc5fe217e86c68070906db776a9e" redirect="http://localhost:3100/index-dev-local.html" scope="types" site="http://localhost:3000">
+              <login class="nav" client="81e265dbf00569f9ba39dcc0dc0043020cdb4d2030ad77233be7c27aa447977e" redirect="http://localhost:3100/index-dev-local.html" scope="types" site="http://localhost:3000">
               </login>
               <ul class="nav pull-right nav-context">
                 <li><a href="learn">What is Lelylan Types</a></li>
@@ -81,22 +83,21 @@
 
         <!-- Footer  -->
         <footer class="pull-right">
-          <p>&copy; Lelylan 2013</p>
+        <p>Created by <a href="http://lelylan.com">Lelylan</a> 2013</p>
         </footer>
       </div>
     </div>
 
 
-    <script src="components/unstable-angular-complete/angular.js"></script>
-    <script src="components/unstable-angular-complete/angular-resource.js"></script>
-    <script src="components/unstable-angular-complete/angular-cookies.js"></script>
 
-
-    <script src="scripts/76bad076.scripts.js"></script>
+    <script src="scripts/504ff09a.scripts.js"></script>
 
     <script>
       angular.module('app', ['lelylan.dashboards.types', 'lelylan.components.device.simulate'])
-        .value('lelylan.config', { endpoint: 'http:///localhost\\:8000' })
+        .value('lelylan.config', { endpoint: 'http://localhost\\:8000' })
+        .config(['$locationProvider', function($locationProvider) {
+          $locationProvider.html5Mode(true).hashPrefix('!');
+        }]);
     </script>
 
     <script>

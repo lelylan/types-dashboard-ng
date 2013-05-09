@@ -35,7 +35,7 @@ var type = {
     name: 'Status',
     default: 'off',
     suggested: {'on': 'On', 'off': 'Off'},
-    type: 'string'
+    type: 'text'
   }, {
     uri: 'http://api.lelylan.com/properties/2',
     id: '2',
