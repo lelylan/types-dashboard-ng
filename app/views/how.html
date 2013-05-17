@@ -5,14 +5,14 @@
   <div class="description">
 
     <p>
-    In this section we explain how to create a type. Even so, as the time passes, you will
-    find more and more type already defined. For this reason we highly suggest to double check
+    In this section we explain how to create a type. Even so, from time to time you will
+    find more types already defined. For this reason we highly suggest to double check
     for existing types in the <a href="popular">popular section</a> or in the categories.
 
     If you didn't find the desired type, start creating a new one. Click on the
-    <a href="new">create type</a> link and fill the form with a name and an optional description
-    (accepts <a href="http://daringfireball.net/projects/markdown/syntax#link">markdown</a> syntax).
-    To let other people easily find and use your types, set a meaningful name and a clear description.
+    <a href="new">create type</a> link and fill in the form with a name and a description - it accepts
+    <a href="http://daringfireball.net/projects/markdown/syntax#link">markdown</a> syntax.
+    To let other people find and use your types, set a meaningful name and a clear description.
     </p>
 
     <div class="overlay">
@@ -32,12 +32,12 @@
     <h2>Properties</h2>
 
     <p>
-    Now lets focus to the type properties. A property is whatever vary in a device during time.
+    Now lets focus on the type properties. A property is whatever varies in a device during time.
     It can be the intensity in a dimmer, the temperature in a cooling system or the volume in a
     television.
 
-    Supposing we want to create a basic light where I can change it status (on/off) and where
-    I can decide the light intensity, we are defining a light with two properties:
+    Let's say we want to create a basic light where we can change the status (on/off) and where
+    we can decide the light intensity. We define a light with two properties:
     <code>status</code> and <code>intensity</code>.
     </p>
 
@@ -53,7 +53,7 @@
     </div>
 
     <p>
-    To create a property click <code>create property</code> and fill the form with the required
+    To create a property click on <code>create property</code> and fill in the form with the required
     field.
     </p>
 
@@ -86,7 +86,7 @@
     </div>
 
     <p>
-    Another example is the property <code>intensity</code> where the main difference is that
+    Another example is the property <code>intensity</code> - the main difference is that
     it does not accept string values but a range value from 0 to 100 with a step of 1.
     </p>
 
@@ -113,10 +113,10 @@
     <h2>Functions</h2>
 
     <p>
-    Once defined the properties lets move to the functions. Functions defines the daily
+    Once defined the properties let's move to the functions. Functions define the daily
     interactions you have with the devices in your house like turning on a light, closing
     a door or raising the temperature in your room. With functions you can control any
-    device in the same way you do everyday of your life.
+    device in the same way you do in real life.
     </p>
 
     <p>
@@ -171,8 +171,8 @@
     </div>
 
     <p>
-    Another example is the function <code>set intensity</code> where the main difference is that
-    the property intensity is not set to any value. This convention means that an interactions
+    Another example is the function <code>set intensity</code> - the main difference is that
+    the property intensity is not set to any value. This convention means that an interaction
     with the user is required to set the light intensity before executing the function.
     </p>
 
@@ -197,11 +197,11 @@
     <h2>Statuses</h2>
 
     <p>
-    Properties are not always enough to describe the status of a device. Think at a roller
+    Sometimes properties are not enough to describe the status of a device. Think at a roller
     shutter for example. It could have the property <code>aperture</code> to <code>100</code>
     when open and <code>0</code> when closed. But what if the roller shutter is opening? It
-    is nether open or close. To have a complete control over the device status in a specific
-    moment of its life is to use the status API. Our basic light, for example, has the statuses
+    is neither open nor close. To have a complete control over the device status in a specific
+    moment of its life we use the status API. Our basic light, for example, has the statuses
     <code>light ON</code> and <code>light OFF</code>.
     </p>
 
@@ -231,7 +231,7 @@
     <p class="notice">
     <span class="label label-info">NOTICE</span>
     The default function can be really useful to define a "one click function". For example
-    when the light is on the default function is turn off, whereas when the light is off the
+    when the light is on the default function is turn off, and when the light is off the
     default function is turn on.
     </p>
 
@@ -254,7 +254,7 @@
 
     <p class="notice">
     <span class="label label-info">NOTICE</span>
-    Type status is still work in progress, use it for simple scenarios.
+    Type status is still in progress, please use it just for simple scenarios.
     To better understand how properties work check out <a href="http://dev.lelylan.com/api/types/statuses">Lelylan Status API</a>.
     </p>
 
@@ -265,9 +265,9 @@
     <p>
     Categories (e.g. lights, locks, appliances, etc.) are used to group together similar
     devices. For example a <code>standard light</code> (on/off) and an <code>RGB light</code>
-    (with color settings) are two different types, but they still belongs to the same category.
+    (with color settings) are two different types, but they still belong to the same category.
 
-    To associate one or more categories to a type go into the categories section and click on
+    To associate one or more categories to a type, go into the categories section and click on
     the desired categories. Click again to deselect it.
     </p>
 
@@ -312,7 +312,7 @@
     </div>
 
     <p>
-    Here you can now interact with a simulated device that uses your brand new type.
+    Here you can interact with a simulated device that uses your brand new type.
     </p>
 
     <div class="overlay">
