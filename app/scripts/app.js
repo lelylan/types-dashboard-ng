@@ -7,7 +7,7 @@ angular.module('lelylan.dashboards.type', [
   'lelylan.directives.type',
   'config',
   'ngRoute'
-])
+]);
 
 // routing
 angular.module('lelylan.dashboards.type').config(function ($routeProvider) {
@@ -15,6 +15,23 @@ angular.module('lelylan.dashboards.type').config(function ($routeProvider) {
     .when('/', {
       templateUrl: 'views/types.html',
       controller:  'TypesCtrl'
+    })
+    .when('/types/:id/', {
+      templateUrl: 'views/type.html',
+      controller: function ($scope, $rootScope, $routeParams) {
+        $scope.id = $routeParams.id;
+        $scope.url = window.location.href;
+        $rootScope.page = 'type';
+        $rootScope.loading = false;
+      }
+    })
+    .when('/types/:id/embed', {
+      templateUrl: 'views/type.html',
+      controller: function ($scope, $rootScope, $routeParams) {
+        $scope.id = $routeParams.id;
+        $rootScope.embed = 'embed';
+        $rootScope.loading = false;
+      }
     })
     .when('/create', {
       templateUrl: 'views/create.html',
@@ -81,3 +98,30 @@ angular.module('lelylan.dashboards.type').factory('myHttpInterceptor', function 
   };
 });
 
+angular.module('lelylan.dashboards.type')
+.directive('dynFbCommentBox', function () {
+    function createHTML(href, numposts, width, colorscheme) {
+        return '<div class="fb-comments" ' +
+                       'data-href="' + href + '" ' +
+                       'data-numposts="' + numposts + '" ' +
+                       'data-width="' + width + '" ' +
+                       'data-colorsheme="' + colorscheme + '">' +
+               '</div>';
+    }
+
+    return {
+        restrict: 'A',
+        scope: {},
+        link: function postLink(scope, elem, attrs) {
+            attrs.$observe('pageHref', function (newValue) {
+                var href        = newValue;
+                var numposts    = attrs.numposts    || 5;
+                var colorscheme = attrs.colorscheme || 'light';
+                var width       = attrs.width || '100px';
+
+                elem.html(createHTML(href, numposts, width, colorscheme));
+                FB.XFBML.parse(elem[0]);
+            });
+        }
+    };
+});

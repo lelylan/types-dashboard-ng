@@ -3,11 +3,6 @@
 angular.module('lelylan.dashboards.type')
   .controller('MainCtrl', function ($scope, $rootScope, $timeout, $q, $location, $route, $cacheFactory, ENV, Device, Type, Category, AccessToken, Dimension, Column, Menu) {
 
-
-    /*
-     * Configs
-     */
-
     // Logged in or out
     $scope.logged = function() {
       return !!AccessToken.get();
@@ -48,6 +43,10 @@ angular.module('lelylan.dashboards.type')
       var types;
 
       var setTypes = function(types) {
+        if (types.length == 0) {
+          $location.path('/no-types')
+        }
+
         $rootScope.all   = types;
         $rootScope.types = types;
       }
@@ -87,15 +86,13 @@ angular.module('lelylan.dashboards.type')
 
 
     $rootScope.setTypology = function(typology) {
+      $location.path('/');
       $scope.typology = typology;
       $rootScope.load();
     };
 
 
-
-    /*
-     * Token expiration
-     */
+    /* Token expiration */
 
     $scope.$on('oauth:expired', function(event) {
       $location.path('expired');

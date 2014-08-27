@@ -308,11 +308,49 @@ a {
   .active:hover {
     border-left: 0.2em solid $lelylan-color;
   }
+}
+
+
+/* Embedded type */
+
+.embed {
 
   .comments {
     padding: 2.5em .5em;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #f8f8f8;
+    padding: .5em 2.5%;
+    width: 95%;
+    border-top: 1px solid #eee;
+  }
+
+  .ly-type .ly-header .ly-form .ly-field {
+    padding: 0;
+  }
+
+  .ly-type {
+    padding-bottom: 2.5em;
+  }
+
+  .ly-type {
+    border-bottom: none;
+  }
 }
+
+
+/* Detailed view */
+
+.detailed-type {
+
+  .back .fa {
+    font-size: 1.3em;
+  }
+}
+
 
 /* Disabled categories */
 
@@ -342,35 +380,6 @@ a {
 .one .active,
 .one .active:hover {
   border-left: none !important;
-}
-
-/* Device directive */
-
-.ly-device,
-.ly-compact {
-  border: none;
-}
-
-.devices .ly-status .ly-description .ly-name {
-  font-size: 1.5em;
-  line-height: 1.15em;
-}
-
-.devices .ly-status {
-  border-bottom: none;
-}
-
-.details .ly-device {
-  border-bottom: 1px solid #f6f6f6;
-  padding: 0 0 0 0.2em;
-}
-
-.details .ly-device {
-  height: 99.8%;
-}
-
-.details .ly-device .ly-modal .ly-modal-window {
-  width: 99.7%;
 }
 
 
@@ -705,20 +714,6 @@ a {
 }
 
 
-/* ----------------- *
-/* Lists of pysicals *
-/* ----------------- */
-
-.physicals {
-  padding-top: 1em !important;
-}
-
-.physicals .physical input {
-  padding-top: 0.3em;
-  font-size: 1em;
-}
-
-
 /* ------------- *
 /* Typology Menu *
 /* ------------- */
@@ -762,11 +757,6 @@ a {
 }
 
 
-
-
-
-
-
 /* ---------- *
  * Login page *
  * ---------- */
@@ -776,44 +766,6 @@ a {
   font-size: 3em;
   margin-bottom: 0;
 }
-
-
-
-/* --------- *
- * Demo page *
- * --------- */
-
-.demo .header {
-  background-color: #555;
-}
-
-// menu definition
-
-.demo .menu {
-  font-size: 1em;
-  padding-top: 0em;
-}
-
-.demo .menu .title {
-  vertical-align: top;
-  color: #bbb;
-  margin-right: 1em;
-  font-size: 0.65em;
-  padding-top: 0.5em;
-  display: inline-block;
-  text-transform: uppercase;
-}
-
-// switch
-.switch { font-size: 0.5em; display: inline-block; }
-.switch input { position: absolute; left: -9999px; }
-.switch input:checked + .slider::before { box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 3em 0 0 0 $lelylan-color inset; }
-.switch input:checked + .slider::after { left: 3em; }
-.switch .slider { position: relative; display: block; width: 5.5em; height: 3em; cursor: pointer; border-radius: 1.5em; transition: 350ms; background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0)), #dddddd; box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);}
-.switch .slider::after { position: absolute; content: ''; width: 2em; height: 2em; top: 0.5em; left: 0.5em; border-radius: 50%; transition: 250ms ease-in-out; background: linear-gradient(#f5f5f5 10%, #eeeeee); box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.2em 0.2em -0.12em rgba(0, 0, 0, 0.5); }
-.switch .slider::before { position: absolute; content: ''; width: 4em; height: 1.5em; top: 0.75em; left: 0.75em; border-radius: 0.75em; transition: 250ms ease-in-out; background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0; box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 0 0 0 0 $lelylan-color inset; }
-.switch .spinner { padding-left: 1.5em; }
-.switch .spinner > div { background-color: #ccc; }
 
 
 
@@ -915,7 +867,7 @@ a {
 
 .ly-type {
   border: none;
-  border-bottom: 3px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .ly-type .ly-content > .ly-header {

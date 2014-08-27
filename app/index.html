@@ -31,6 +31,15 @@
 
   <body ng-app="app" ng-init="loading=true">
 
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=290505931149694&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- ------------ --
     <!--  Preloading  --
     <!-- ------------ -->
@@ -47,7 +56,7 @@
 
     <div class="app ng-cloak" ng-class="{ demo: demo }" ng-controller="MainCtrl" ng-show="!loading">
 
-      <div class="header">
+      <div class="header" ng-if="!embed">
 
         <!-- Left menu -->
 
@@ -73,8 +82,8 @@
         </div>
       </div>
 
-      <div class="typology">
-        <ul>
+      <div class="typology" ng-if="!embed">
+        <ul ng-if="page!='type'">
           <li ng-class="{ 'active': typology == 'populars' }">
             <a href="" ng-click="setTypology('populars')"><i class="fa fa-star-o"></i> Populars</a>
           </li>
@@ -83,6 +92,11 @@
           </li>
           <li ng-if="logged()" ng-class="{ 'active': typology == 'yours' }">
             <a href="" ng-click="setTypology('yours')"><i class="fa fa-user"></i> Yours</a>
+          </li>
+        </ul>
+        <ul ng-if="page=='type'">
+          <li ng-class="{ 'active': typology == 'populars' }">
+          <a href="javascript:window.history.back() || '#'" class="back"><i class="fa fa-chevron-left"></i> Go back to previous page</a>
           </li>
         </ul>
       </div>
@@ -135,9 +149,10 @@
     <script>
       angular.module('app', ['lelylan.dashboards.type']);
 
-      angular.module('app').config(function(lelylanClientConfigProvider, ENV) {
+      angular.module('app').config(function($locationProvider, lelylanClientConfigProvider, ENV) {
         lelylanClientConfigProvider.configure({ endpoint: ENV.endpoint });
       });
+
     </script>
 </body>
 </html>

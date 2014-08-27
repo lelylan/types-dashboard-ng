@@ -9,6 +9,9 @@ angular.module('lelylan.dashboards.type')
     // set lelylan as top menu
     Menu.set('lelylan');
 
+    // set the actual page
+    $rootScope.page = 'create';
+
 
     // set physical (step 3)
     $scope.createType = function() {

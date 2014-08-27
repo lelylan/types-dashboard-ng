@@ -4,10 +4,11 @@ angular.module('lelylan.dashboards.type')
   .controller('TypesCtrl', function ($scope, $rootScope, $timeout, $q, $location, $route, $cacheFactory, ENV, Device, Type, Category, AccessToken, Dimension, Column, Menu) {
 
 
-    /* Loads resources */
-
+    // Loads resources
     $rootScope.load();
 
+    // set the actual page
+    $rootScope.page = 'types';
 
     /* Category selection */
 
