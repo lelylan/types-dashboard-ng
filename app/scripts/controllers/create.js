@@ -22,7 +22,10 @@ angular.module('lelylan.dashboards.type')
     $scope.complete = function() {
 
       // remove the cached types
-      var cached = $cacheFactory.get('$http').remove(ENV.endpoint + '/types');
+      var val = $cacheFactory.get('$http').get(ENV.endpoint + '/types?per=100');
+      var cached = $cacheFactory.get('$http').remove(ENV.endpoint + '/types?per=100');
+      console.log(val, $cacheFactory.get('$http'))
+
 
       // redirect
       $location.path('/');
