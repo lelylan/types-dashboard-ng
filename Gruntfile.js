@@ -378,7 +378,7 @@ module.exports = function (grunt) {
             endpoint: 'http://api.lelylan.com',
             credentials: {
               site: 'http://people.lelylan.com',
-              clientId: '3bfdab6de9b9f2b82c595bd8befef178d5ea929dc40b0848de6a67b2a182d709',
+              clientId: '0f132c8b234ce0018ae0a77d8e9f06126e140885ba86d83f41a168a2aacda7da',
               redirectUri: 'http://lelylan.github.io/types-dashboard-ng',
               profileUri: 'http://api.lelylan.com/me'
             }
