@@ -82,7 +82,6 @@ angular.module('lelylan.dashboards.type')
         $rootScope.loading = false;
         $rootScope.setCategory($rootScope.categories[0]);
         $scope.currentType = $rootScope.types[0];
-        $timeout(function() { $scope.currentType = $rootScope.types[0];console.log("CHANGE::", $scope.currentType.name) }, 0);
       }
     }
 

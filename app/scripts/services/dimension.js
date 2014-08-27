@@ -7,7 +7,7 @@ service.factory('Dimension', function($window, $rootScope, Column) {
   var _window = angular.element($window);
 
   var dimensions = {};
-  var offsets    = { menu: 4.3, spacing: 0.5, typology: 1.5 };
+  var offsets    = { menu: 4.3, spacing: 0.5, typology: 1.8 };
   var service    = {};
 
 
