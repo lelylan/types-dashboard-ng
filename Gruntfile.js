@@ -457,7 +457,6 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     //'htmlmin',
-    'string-replace'
   ]);
 
   grunt.registerTask('default', [
