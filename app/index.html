@@ -1,0 +1,143 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Types Dashboard</title>
+    <meta name="description" content="The new place where to define the Connected Home">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/type-directive-ng/dist/type-directive-ng.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/semantic-ui/build/uncompressed/collections/grid.css">
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <style>
+      .ng-cloak { display: none !important; }
+    </style>
+  </head>
+
+  <body ng-app="app" ng-init="loading=true">
+
+    <!-- ------------ --
+    <!--  Preloading  --
+    <!-- ------------ -->
+
+    <div class="preloading" ng-show="loading">
+      <div class="logo"></div>
+      <div class="spinner"><div class="bounce-1"></div><div class="bounce-2"></div><div class="bounce-3"></div></div>
+      <p class="description">Loading<p>
+    </div>
+
+    <!-- ------------- --
+    <!-- App Container --
+    <!-- ------------- -->
+
+    <div class="app ng-cloak" ng-class="{ demo: demo }" ng-controller="MainCtrl" ng-show="!loading">
+
+      <div class="header">
+
+        <!-- Left menu -->
+
+        <a class="logo" href="#" ng-show="menu.visible.lelylan">
+          Types Dashboard
+        </a>
+        <a class="back" href=""  ng-show="menu.visible.categories" ng-click="moveToCategories()"><span class="fa fa-angle-left"></span> Categories</a>  <!-- -->
+        <a class="back" href=""  ng-show="menu.visible.devices" ng-click="moveToDevices()"><span class="fa fa-angle-left"></span> {{currentCategory.name}}</a>  <!-- -->
+        <div class="spinner" id="spinner"><div class="bounce-1"></div><div class="bounce-2"></div><div class="bounce-3"></div></div>
+
+        <!-- Right menu -->
+
+        <div class="menu">
+          <a href="#create" ng-if="logged()"><span class="menu-icon fa fa-plus"></span> <span class="text">Create</span></a>  <!-- hack inline block -->
+          <oauth
+          template="views/templates/oauth-ng-menu.html"
+          scope="resources+privates"
+          site="{{credentials.site}}"
+          client-id="{{credentials.clientId}}"
+          redirect-uri="{{credentials.redirectUri}}"
+          profile-uri="{{credentials.profileUri}}">
+          </oauth>
+        </div>
+      </div>
+
+      <div class="typology">
+        <ul>
+          <li ng-class="{ 'active': typology == 'populars' }">
+            <a href="" ng-click="setTypology('populars')"><i class="fa fa-star-o"></i> Populars</a>
+          </li>
+          <li ng-class="{ 'active': typology == 'recents' }">
+            <a href="" ng-click="setTypology('recents')"><i class="fa fa-clock-o"></i> Recents (50)</a>
+          </li>
+          <li ng-if="logged()" ng-class="{ 'active': typology == 'yours' }">
+            <a href="" ng-click="setTypology('yours')"><i class="fa fa-user"></i> Yours</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container" ng-view=""></div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/base64/base64.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/oauth-ng/dist/oauth-ng.js"></script>
+    <script src="bower_components/lelylan-ng/dist/lelylan-ng.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="bower_components/ng-clip/dest/ng-clip.min.js"></script>
+    <script src="bower_components/type-directive-ng/dist/type-directive-ng.js"></script>
+    <!-- endbower -->
+
+    <!-- TODO install with bower -->
+    <script src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="bower_components/jasmine-jquery/lib/jasmine-jquery.js"></script>
+    <!--<script src="bower_components/socket.io-client/socket.io.js"></script>-->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/types.js"></script>
+    <script src="scripts/controllers/create.js"></script>
+    <script src="scripts/services/dimension.js"></script>
+    <script src="scripts/services/column.js"></script>
+    <script src="scripts/services/menu.js"></script>
+    <!-- endbuild -->
+
+
+    <script>
+      angular.module('app', ['lelylan.dashboards.type']);
+
+      angular.module('app').config(function(lelylanClientConfigProvider, ENV) {
+        lelylanClientConfigProvider.configure({ endpoint: ENV.endpoint });
+      });
+    </script>
+</body>
+</html>
