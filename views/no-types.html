@@ -1,0 +1,30 @@
+<div class="login message ui three column grid">
+  <div class="column descriptive">
+    <p class="title">You have no types</p>
+    <p class="description">
+    It takes few minutes to create a <br>
+    new type defining the structure for<br>
+    the device you want to create or control.</br>
+    </p>
+    <p></p>
+    <p class="login-link" ng-if="logged()">
+      <a href="#create"><i class="fa fa-plus"></i> Create type</a>
+    </p>
+    <p class="login-link" ng-if="!logged()">
+      <oauth
+        template="views/templates/oauth-ng-only-login.html"
+        scope="resources+privates"
+        site="{{credentials.site}}"
+        client-id="{{credentials.clientId}}"
+        redirect-uri="{{credentials.redirectUri}}"
+        profile-uri="{{credentials.profileUri}}"
+        text="Login first">
+      </oauth>
+    </p>
+    <hr>
+    <p>Probably the type you need already exists. <br>
+    Search between <a href="/"><span class="fa fa-star-o"></span> popular types</a>
+    before creating a new one.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="content ui {{columns.count}} column grid">
+  <div class="list categories column scroller" style="height: {{dimensions.height}}em;" ng-show="columns.visible.one">
+    <div class="element category ly-animation" ng-repeat="category in categories" ng-click="setCategory(category)" ng-class="{active: category.tag == currentCategory.tag, disabled: !category.types}">
+      <p class="name {{category}}">
+        <a>{{category.name}}</a>
+        <span ng-show="category.types">{{category.types}}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="list types column scroller" style="height: {{dimensions.height}}em" ng-show="columns.visible.two">
+    <div class="element type" ng-repeat="type in types" ng-click="selectType(type)" ng-class="{active: type.id == currentType.id}">
+      <p class="name {{type.name}}">
+        <a>{{type.name}}</a>
+        <span ng-show="category.types">{{category.types}}</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="details column" style="height: {{dimensions.height}}em" ng-show="columns.visible.three">
+    <div class="detail">
+      <lelylan-type type-id="{{currentType.id}}" ng-show="currentType"></lelylan-type>
+    </div>
+    <a href="#types/{{currentType.id}}">
+      <i class="fa fa-comments-o" style="font-size:3em;padding:.5em 44%;color:#239cbb;"></i>
+    </a>
+  </div>
+</div>

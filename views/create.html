@@ -1,0 +1,42 @@
+<div class="content create ui {{columns.count}} column grid">
+  <div class="column step step-info" style="height: {{dimensions.height}}em">
+
+    <div ng-show="!type.id">
+      <h2>Give a meaningful name to your Types. They will be easier to find for all users.</h2>
+
+      <p>Here some examples</p>
+      <ul>
+        <li>RGB Light</li>
+        <li>Lock</li>
+        <li>Thermostat</li>
+      </ul>
+    </div>
+
+    <div ng-if="type.id">
+      <h2>Add properties, functions and statuses to define a proper type.</h2>
+
+      <p>
+        If you don't know how to create a type check out the
+        <a href="http://dev.lelylan.com/types">dev center</a>
+        to understand how to define one.
+      </p>
+      </div>
+  </div>
+
+  <div class="column step step-content" style="height: {{dimensions.height}}em" ng-class="{'step-content-collapse': type.id}">
+
+    <div ng-show="!type.id">
+      <h1>Define the Type name</h1>
+      <form name="form" novalidate ng-submit="createType()">
+        <input class="create-input" type="text" placeholder="Set type name" ng-model="type.name" required autofocus>
+        <button ng-disabled="form.$invalid"><i class="fa fa-angle-right"></i> Confirm</button>
+      </form>
+    </div>
+
+    <div ng-if="type.id">
+      <lelylan-type type-id="{{type.id}}"></lelylan-type>
+      <button ng-click="complete()"><i class="fa fa-angle-right"></i> I'm done</button>
+    </div>
+  </div>
+</div>
+

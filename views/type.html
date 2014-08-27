@@ -1,0 +1,40 @@
+<div class="content create detailed-type ui {{columns.count}} column grid" ng-if="!embed">
+  <div class="column step step-info" style="height: {{dimensions.height}}em">
+    <div>
+      <h2>In this section you can comment and discuss how this type is defined.</h2>
+      <p>
+      Help us to define the devices that will build the connected home.
+      Sometimes they look compliceated, but they only need some thoughts :)
+      </p>
+
+      <div style="margin-top: 2em;"
+        id="fb-comment-box" dyn-fb-comment-box
+        page-href="http://types.lelylan.com/types/{{id}}"
+        numposts="10"
+        width="100%"
+        colorscheme="light">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="column step step-content" style="height: {{dimensions.height}}em">
+    <lelylan-type type-id="{{id}}"></lelylan-type>
+
+    <div style="margin-top: 2em;" ng-show="columns.count=='one'"
+         id="fb-comment-box" dyn-fb-comment-box
+         page-href="http://types.lelylan.com/types/{{id}}"
+         numposts="10"
+         width="100%"
+         colorscheme="light">
+    </div>
+  </div>
+</div>
+
+<div class="embed" ng-if="embed" style="min-height: 400px">
+  <div class="type" style="position:relative">
+    <lelylan-type type-id="{{id}}"></lelylan-type>
+  </div>
+  <div class="footer">Powered by <a href="http://types.lelylan.com" target="_blank">Lelylan types</a></div>
+</div>
+
