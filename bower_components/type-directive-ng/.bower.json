@@ -1,6 +1,6 @@
 {
   "name": "type-directive-ng",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": [
     "dist/type-directive-ng.js",
     "dist/type-directive-ng.css"
@@ -37,14 +37,14 @@
     "jasmine-jquery": "~2.0.3"
   },
   "homepage": "https://github.com/lelylan/type-directive-ng",
-  "_release": "0.2.5",
+  "_release": "0.2.6",
   "_resolution": {
     "type": "version",
-    "tag": "0.2.5",
-    "commit": "49029f1c337136cdcf6aa65b3b7f9b478bab7ab6"
+    "tag": "0.2.6",
+    "commit": "f2c0cb6f81689bc53a17b2d200279b0f8745056a"
   },
   "_source": "git://github.com/lelylan/type-directive-ng.git",
-  "_target": "~0.2.5",
+  "_target": "~0.2.6",
   "_originalSource": "type-directive-ng",
   "_direct": true
 }
