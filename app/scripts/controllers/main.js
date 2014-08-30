@@ -86,6 +86,7 @@ angular.module('lelylan.dashboards.type')
 
 
     $rootScope.setTypology = function(typology) {
+      //$rootScope.loading = true;
       $location.path('/');
       $scope.typology = typology;
       $rootScope.load();
