@@ -12,7 +12,7 @@
     "underscore": "~1.6.0",
     "angular-animate": "1.2.16",
     "oauth-ng": "~0.2.6",
-    "type-directive-ng": "~0.2.5",
+    "type-directive-ng": "~0.2.6",
     "lelylan-ng": "~0.2.0"
   },
   "devDependencies": {
