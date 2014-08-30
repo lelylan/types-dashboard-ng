@@ -1,10 +1,25 @@
+/* type-directive-ng - v0.2.5 - 2014-08-30 */
+
+/*
+ * Fonts
+ */
+
+@font-face {
+  font-family: 'Lato';
+  src: url('fonts/Lato/Lato-Light.eot'), /* IE9 Compat Modes */
+       url('fonts/Lato/Lato-Light.svg') format('svg'),
+       url('fonts/Lato/Lato-Light.woff') format('woff'), /* Modern Browsers */
+       url('fonts/Lato/Lato-Light.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+
 /*
  * Component reset
  */
 
 .ly-type * {
   font-size: 1em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", sans-serif;
   background: none repeat scroll 0 0 transparent;
   border: medium none;
   border-spacing: 0;
@@ -16,7 +31,6 @@
   text-align: left;
   text-decoration: none;
   text-indent: 0;
-  letter-spacing: 0.05em;
   line-height: 1.2em;
 }
 
@@ -30,7 +44,7 @@
  */
 
 .ly-type {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", sans-serif;
   background-color: #fff;
   color: #333;
   border: 1px solid #eee;
@@ -79,7 +93,7 @@ input:focus {
 }
 
 .ly-type .ly-form .ly-button {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", sans-serif;
   width: 100%;
   padding: 0;
   padding-top: 0.7em;
@@ -348,7 +362,7 @@ input:focus {
 }
 
 .ly-type .ly-no-connections p {
-  font-size: 1.1em;
+  font-size: 1em;
   padding-bottom: .5em;
 }
 

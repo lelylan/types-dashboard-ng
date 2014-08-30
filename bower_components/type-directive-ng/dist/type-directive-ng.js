@@ -1,3 +1,5 @@
+/* type-directive-ng - v0.2.5 - 2014-08-30 */
+
 'use strict';
 
 angular.module('lelylan.directives.type', [

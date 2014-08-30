@@ -1,6 +1,6 @@
 {
   "name": "type-directive-ng",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "main": [
     "dist/type-directive-ng.js",
     "dist/type-directive-ng.css"
@@ -15,9 +15,9 @@
     "package.json"
   ],
   "dependencies": {
-    "angular": "1.2.16",
-    "angular-animate": "~1.2.16",
-    "angular-touch": "~1.2.16",
+    "angular": "1.2.22",
+    "angular-animate": "~1.2.22",
+    "angular-touch": "~1.2.22",
     "lelylan-ng": "~0.2.0-beta",
     "moment": "~2.5.1",
     "angular-moment": "~0.6.2",
@@ -37,14 +37,14 @@
     "jasmine-jquery": "~2.0.3"
   },
   "homepage": "https://github.com/lelylan/type-directive-ng",
-  "_release": "0.2.0",
+  "_release": "0.2.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.2.0",
-    "commit": "8fdf70e59caf87f0c42e358bcb0c1fd6a5d3e735"
+    "tag": "0.2.5",
+    "commit": "49029f1c337136cdcf6aa65b3b7f9b478bab7ab6"
   },
   "_source": "git://github.com/lelylan/type-directive-ng.git",
-  "_target": "~0.2.0",
+  "_target": "~0.2.5",
   "_originalSource": "type-directive-ng",
   "_direct": true
 }
