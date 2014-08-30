@@ -100,11 +100,12 @@ angular.module('lelylan.dashboards.type').factory('myHttpInterceptor', function 
 
 angular.module('lelylan.dashboards.type')
 .directive('dynFbCommentBox', function () {
-    function createHTML(href, numposts, width, colorscheme) {
+    function createHTML(href, numposts, width, mobile, colorscheme) {
         return '<div class="fb-comments" ' +
                        'data-href="' + href + '" ' +
                        'data-numposts="' + numposts + '" ' +
                        'data-width="' + width + '" ' +
+                       'data-mobile="' + mobile + '" ' +
                        'data-colorsheme="' + colorscheme + '">' +
                '</div>';
     }
@@ -116,10 +117,11 @@ angular.module('lelylan.dashboards.type')
             attrs.$observe('pageHref', function (newValue) {
                 var href        = newValue;
                 var numposts    = attrs.numposts    || 5;
-                var colorscheme = attrs.colorscheme || 'light';
                 var width       = attrs.width || '100px';
+                var mobile      = attrs.mobile || false;
+                var colorscheme = attrs.colorscheme || 'light';
 
-                elem.html(createHTML(href, numposts, width, colorscheme));
+                elem.html(createHTML(href, numposts, width, mobile, colorscheme));
                 FB.XFBML.parse(elem[0]);
             });
         }
