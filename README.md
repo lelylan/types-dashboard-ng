@@ -14,6 +14,24 @@ Do not forget to provide specs to your contribution.
 * Fork and clone the repository
 * Run `npm install && bower install`
 
+### With docker
+
+#### Badges
+Docker image: [lelylanlab/types-dashboard-ng](https://hub.docker.com/r/lelylanlab/types-dashboard-ng/)
+
+[![](https://images.microbadger.com/badges/version/lelylanlab/types-dashboard-ng:latest.svg)](http://microbadger.com/images/lelylanlab/types-dashboard-ng:latest "Get your own version badge on microbadger.com")  [![](https://images.microbadger.com/badges/image/lelylanlab/types-dashboard-ng:latest.svg)](http://microbadger.com/images/lelylanlab/types-dashboard-ng:latest "Get your own image badge on microbadger.com")
+
+### Use docker hub image
+```bash
+$ docker run -d -it --name types-dashboard-ng lelylanlab/types-dashboard-ng
+```
+
+### Generate local image
+```bash
+$ docker build --tag=types-dashboard-ng .
+$ docker run -d -it --name types-dashboard-ng types-dashboard-ng
+```
+
 
 ### Unit tests (karma)
 
