@@ -443,6 +443,9 @@ module.exports = function (grunt) {
           },{
             pattern: /lelylan.github.io\/types-dashboard-ng/g,
             replacement: process.env.LELYLAN_TYPES_DASHBOARD_PUBLIC_URL
+          },{
+            pattern: /dev.lelylan.com/g,
+            replacement: process.env.LELYLAN_DEV_CENTER_PUBLIC_URL
           }]
         }
       },
