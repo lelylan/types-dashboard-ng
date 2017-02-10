@@ -419,8 +419,7 @@ module.exports = function (grunt) {
     'string-replace': {
       dist: {
         files: {
-          './': 'dist/**/*.html',
-          'js': 'dist/**/*.js'
+          './': 'dist/**/*'
         },
         options: {
           replacements: [{
