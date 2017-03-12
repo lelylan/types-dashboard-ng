@@ -6,7 +6,7 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-
+require('dotenv').config()
 
 module.exports = function (grunt) {
 
@@ -21,6 +21,35 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+    //Environment variables
+    env: {
+      dev: {
+        LELYLAN_API_PUBLIC_URL: 'localhost:8000',
+        LELYLAN_PEOPLE_PUBLIC_URL: 'localhost:3000',
+        LELYLAN_CLIENT_ID: '0e9819715cce6100d8e95e734a42f94f628f91cc5934f8014b91efedb799d36e',
+        LELYLAN_TYPES_DASHBOARD_PUBLIC_URL: 'lelylan.github.io/types-dashboard-ng',
+        LELYLAN_DEVICES_DASHBOARD_PUBLIC_URL: 'localhost:9000',
+        LELYLAN_DEV_CENTER_PUBLIC_URL: 'dev.lelylan.com',
+        LELYLAN_WEBSOCKETS_PUBLIC_URL: '127.0.0.1:8002',
+        LELYLAN_NODES_PUBLIC_URL: 'localhost:8003',
+        PUBLIC_HOST: 'localhost',
+        LISTEN_HOST: 'localhost',
+        PORT: 9000
+      },
+      prod: {
+        LELYLAN_API_PUBLIC_URL: process.env.LELYLAN_API_PUBLIC_URL || 'api.lelylan.com',
+        LELYLAN_PEOPLE_PUBLIC_URL: process.env.LELYLAN_PEOPLE_PUBLIC_URL || 'people.lelylan.com',
+        LELYLAN_CLIENT_ID: process.env.LELYLAN_CLIENT_ID || '0f132c8b234ce0018ae0a77d8e9f06126e140885ba86d83f41a168a2aacda7da',
+        LELYLAN_DEVICES_DASHBOARD_PUBLIC_URL: process.env.LELYLAN_DEVICES_DASHBOARD_PUBLIC_URL || 'lelylan.github.io/devices-dashboard-ng',
+        LELYLAN_TYPES_DASHBOARD_PUBLIC_URL: process.env.LELYLAN_TYPES_DASHBOARD_PUBLIC_URL || 'lelylan.github.io/types-dashboard-ng',
+        LELYLAN_WEBSOCKETS_PUBLIC_URL: process.env.LELYLAN_WEBSOCKETS_PUBLIC_URL || 'lelylan-websockets.herokuapp.com',
+        LELYLAN_DEV_CENTER_PUBLIC_URL: process.env.LELYLAN_DEV_CENTER_PUBLIC_URL || 'dev.lelylan.com',
+        LELYLAN_NODES_PUBLIC_URL: process.env.LELYLAN_NODES_PUBLIC_URL || 'nodes.lelylan.com',
+        PUBLIC_HOST: process.env.PUBLIC_HOST || 'lelylan.github.io/types-dashboard-ng',
+        LISTEN_HOST: process.env.LISTEN_HOST || '0.0.0.0',
+        PORT: process.env.PORT || 80
+      }
+    },
 
     // Project settings
     yeoman: {
@@ -64,9 +93,8 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        port: process.env.PORT,
+        hostname: process.env.LISTEN_HOST,
         livereload: 35729,
 
         // middleware
@@ -356,13 +384,14 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            endpoint: 'http://localhost:8000',
+            endpoint: 'http://' + process.env.LELYLAN_API_PUBLIC_URL,
             credentials: {
-              site: 'http://localhost:3000',
-              clientId: '0e9819715cce6100d8e95e734a42f94f628f91cc5934f8014b91efedb799d36e',
-              redirectUri: 'http://localhost:9000/',
-              profileUri: 'http://localhost:3000/me'
-            }
+              site: 'http://' + process.env.LELYLAN_PEOPLE_PUBLIC_URL,
+              clientId: process.env.LELYLAN_CLIENT_ID,
+              redirectUri: 'http://' + process.env.LELYLAN_TYPES_DASHBOARD_PUBLIC_URL,
+              profileUri: 'http://' + process.env.LELYLAN_API_PUBLIC_URL + '/me'
+            },
+            websocket: 'ws://' + process.env.LELYLAN_WEBSOCKETS_PUBLIC_URL + '/'
           }
         }
       },
@@ -373,14 +402,63 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            endpoint: 'http://api.lelylan.com',
+            endpoint: 'http://' + process.env.LELYLAN_API_PUBLIC_URL,
             credentials: {
-              site: 'http://people.lelylan.com',
-              clientId: '0f132c8b234ce0018ae0a77d8e9f06126e140885ba86d83f41a168a2aacda7da',
-              redirectUri: 'http://lelylan.github.io/types-dashboard-ng',
-              profileUri: 'http://api.lelylan.com/me'
-            }
+              site: 'http://' + process.env.LELYLAN_PEOPLE_PUBLIC_URL,
+              clientId: process.env.LELYLAN_CLIENT_ID,
+              redirectUri: 'http://' + process.env.LELYLAN_TYPES_DASHBOARD_PUBLIC_URL,
+              profileUri: 'http://' + process.env.LELYLAN_API_PUBLIC_URL + '/me'
+            },
+            websocket: 'ws://' + process.env.LELYLAN_WEBSOCKETS_PUBLIC_URL + '/'
           }
+        }
+      }
+    },
+
+    // search and replace for specific strings in the code
+    'string-replace': {
+      dist: {
+        files: {
+          './': 'dist/**/*'
+        },
+        options: {
+          replacements: [{
+            pattern: /http:\/\/127.0.0.1:8002/g,
+            replacement: 'http://' + process.env.LELYLAN_DEVICES_DASHBOARD_PUBLIC_URL + '/bower_components/'
+          },{
+            pattern: /api.lelylan.com/g,
+            replacement: process.env.LELYLAN_API_PUBLIC_URL
+          },{
+            pattern: /people.lelylan.com/g,
+            replacement: process.env.LELYLAN_PEOPLE_PUBLIC_URL
+          },{
+            pattern: /0f132c8b234ce0018ae0a77d8e9f06126e140885ba86d83f41a168a2aacda7da/g,
+            replacement: process.env.LELYLAN_CLIENT_ID
+          },{
+            pattern: /lelylan.github.io\/devices-dashboard-ng/g,
+            replacement: process.env.LELYLAN_DEVICES_DASHBOARD_PUBLIC_URL
+          },{
+            pattern: /lelylan-websockets.herokuapp.com/g,
+            replacement: process.env.LELYLAN_WEBSOCKETS_PUBLIC_URL
+          },{
+            pattern: /lelylan.github.io\/types-dashboard-ng/g,
+            replacement: process.env.LELYLAN_TYPES_DASHBOARD_PUBLIC_URL
+          },{
+            pattern: /dev.lelylan.com/g,
+            replacement: process.env.LELYLAN_DEV_CENTER_PUBLIC_URL
+          }]
+        }
+      },
+      'dev-center': {
+        files: {
+          './': 'dist/views/create.html',
+          'type-directive-ng': 'dist/bower_components/type-directive-ng/dist/views/templates/default.html'
+        },
+        options: {
+        replacements: [{
+            pattern: /dev.lelylan.com/g,
+            replacement: process.env.LELYLAN_DEV_CENTER_PUBLIC_URL
+          }]
         }
       }
     },
@@ -416,6 +494,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'env:dev',
       'clean:server',
       'ngconstant:development',
       'bower-install',
@@ -432,6 +511,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'env:dev',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -440,6 +520,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'env:prod',
     'clean:dist',
     'bower-install',
     'ngconstant:production',
@@ -455,9 +536,11 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     //'htmlmin',
+    'string-replace'
   ]);
 
   grunt.registerTask('default', [
+    'env:dev',
     'newer:jshint',
     'test',
     'build'
